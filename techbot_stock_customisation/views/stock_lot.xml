@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stock_production_form_simple" model="ir.ui.view">
+        <field name="name">stock.lot.tree.inherited</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="engine_no" optional="show"/>
+                <field name="chassis_no" optional="show"/>
+                <field name="key_no" optional="show"/>
+                <field name="model_year" optional="show"/>
+                <field name="color_internal" optional="show"/>
+                <field name="color_external" optional="show"/>
+                <field name="make" optional="show"/>
+                <field name="bill_of_entry" optional="show"/>
+                <field name="bill_of_lading" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="stock_lot_form_inherited" model="ir.ui.view">
+        <field name="name">stock.lot.from.inherited</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='description']" position="after">
+                <page string="Details" name="details">
+                    <group>
+                        <group>
+                            <field name="engine_no"/>
+                            <field name="chassis_no"/>
+                            <field name="key_no"/>
+                            <field name="model_year"/>
+                             <field name="make"/>
+                        </group>
+                        <group>
+                            <field name="color_internal"/>
+                            <field name="color_external" />
+                            <field name="bill_of_entry"/>
+                            <field name="bill_of_lading"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
