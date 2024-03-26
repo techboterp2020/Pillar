@@ -13,12 +13,15 @@ class ResCompany(models.Model):
     account_no = fields.Char(string='Account No.')
     iban_no = fields.Char(string='IBAN No.')
 
-    sale_terms = fields.Html(string='Default Sale Terms and Conditions', translate=True)
+    custom_sale_terms = fields.Html(string='Default Sale Terms and Conditions', translate=True)
+    custom_invoice_terms = fields.Html(string='Default Invoice Terms and Conditions', translate=True)
+    enable_logo = fields.Boolean(string='Enable Logo')
 
 
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
-    sale_terms = fields.Html(related='company_id.sale_terms', string="Sale Terms & Conditions", readonly=False)
+    custom_sale_terms = fields.Html(related='company_id.custom_sale_terms', string="Sale Terms & Conditions", readonly=False)
+    custom_invoice_terms = fields.Html(related='company_id.custom_invoice_terms', string="Invoice Terms & Conditions", readonly=False)
 
 

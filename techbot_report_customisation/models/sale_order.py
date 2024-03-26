@@ -10,17 +10,17 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     subject = fields.Text(string='Subject')
-    sale_note = fields.Html(
+    custom_sale_note = fields.Html(
         string="Sale Terms and conditions",
-        compute='_compute_sale_note',
+        compute='_compute_custom_sale_note',
         store=True, readonly=False, precompute=True)
 
     @api.depends('partner_id')
-    def _compute_sale_note(self):
+    def _compute_custom_sale_note(self):
         for order in self:
             order = order.with_company(order.company_id)
-            if not is_html_empty(self.env.company.sale_terms):
-                order.sale_note = order.with_context(lang=order.partner_id.lang).env.company.sale_terms
+            if not is_html_empty(self.env.company.custom_sale_terms):
+                order.custom_sale_note = order.with_context(lang=order.partner_id.lang).env.company.custom_sale_terms
 
     def amount_in_words(self, amount):
         return num2words(amount)

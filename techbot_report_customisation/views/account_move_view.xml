@@ -13,6 +13,11 @@
            <xpath expr="//div[@name='journal_div']" position="after">
                <field name="total_product_weight"/>
            </xpath>
+           <xpath expr="//group[@class='oe_invoice_lines_tab']/group" position="after">
+               <group colspan="8">
+                    <field name="custom_invoice_note" placeholder="Invoice Terms and Conditions" colspan="2" nolabel="1"/>
+                </group>
+           </xpath>
        </field>
     </record>
 

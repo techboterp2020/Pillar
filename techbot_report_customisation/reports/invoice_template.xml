@@ -1,226 +1,249 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <template id="company_header_invoice">
+        <table width="100%" height="100%">
+            <tr width="100%">
+                <td width="100%" style="vertical-align: top;">
+                    <t t-if="o.company_id.enable_logo == True">
+                        <div style="display:block;margin:0 auto;">
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" class="text-center"
+                                 alt="Logo" style="width:60%;display:block;margin:0 auto;" height="150px"/>
+                        </div>
+                    </t>
+                    <br/><br/><br/><br/><br/>
+                    <div style="text-align:center;width:100%;text-decoration:underline;">
+                        <h5>
+                            <span style="font-weight:bold;">COMMERCIAL INVOICE</span>
+                        </h5>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/><br/><br/><br/><br/>
+    </template>
+
+    <template id="company_footer_invoice">
+        <div class="footer">
+            <div class="text-center">
+                <ul class="list-inline">
+                    <t t-if="o.company_id.name">
+                        <li class="list-inline-item">
+                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
+                                  t-esc="o.company_id.name"/>,
+                        </li>
+                    </t>
+                    <t t-if="o.company_id.street">
+                        <li class="list-inline-item">
+                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
+                            t-esc="o.company_id.street"/>,
+                        </li>
+                    </t>
+                    <t t-if="o.company_id.street2">
+                        <li class="list-inline-item">
+                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
+                                  t-esc="o.company_id.street2"/>,
+                        </li>
+                    </t>
+                    <t t-if="o.company_id.country_id.name">
+                        <li class="list-inline-item">
+                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
+                                  t-esc="o.company_id.country_id.name"/>
+                        </li>
+                    </t>
+                    <br/>
+                    <t t-if="o.company_id.phone">
+                        <li class="list-inline-item">
+                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
+                                  t-esc="o.company_id.phone"/>
+                        </li>
+                    </t>
+                    <t t-if="o.company_id.mobile">
+                        <li class="list-inline-item">
+                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
+                                  t-esc="o.company_id.mobile"/>
+                        </li>
+                    </t>
+                    <t t-if="o.company_id.email">
+                        <li class="list-inline-item">
+                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
+                                  t-esc="o.company_id.email"/>
+                        </li>
+                    </t>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="custom_invoice_report">
+        <t t-call="web.basic_layout">
+            <div class="oe_structure"/>
+            <div class="page"
+                 t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});padding:10px;min-height: 1690px;">
+                <t t-call="techbot_report_customisation.company_header_invoice"/>
+                <div class="row">
+                    <div class="col-8">
+                        <span style="font-weight:bold;">THE BUYER:</span>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
+                        <br/>
+                        <span style="font-weight:bold;">ADD:</span>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.street"/>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.street2"/>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.city"/>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
+                        <br/>
+                        <span style="font-weight:bold;">MoB:</span>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
+                    </div>
+                    <div class="col-4">
+                        <span style="font-weight:bold;">CI No.</span>
+                        <span style="padding-left:5px;" t-esc="o.name"/>
+                        <br/>
+                        <span style="font-weight:bold;">Date:</span>
+                        <span style="padding-left:5px;" t-esc="o.invoice_date" t-options='{"format": "dd/MM/yyyy", "widget": "date"}'/>
+                        <br/>
+                        <span style="font-weight:bold;">Currency:</span>
+                        <span style="padding-left:5px;" t-esc="o.currency_id.name"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <table class="table table-bordered" style="border:1px solid black;">
+                        <thead>
+                            <th>S/N</th>
+                            <th>Make</th>
+                            <th>Model Specification</th>
+                            <th>HS-Code</th>
+                            <th>Country of Origin</th>
+                            <th>No. of Unit</th>
+                            <th>Unit Price</th>
+                            <th>Total Price</th>
+                        </thead>
+                        <tbody>
+                            <t t-set="counter" t-value="1"/>
+                            <t t-foreach="o.invoice_line_ids" t-as="line">
+                                <tr>
+                                    <td style="text-align:center;">
+                                        <span t-esc="counter"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="line.product_id.categ_id.parent_id.name"/><br/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="line.name"/><br/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="line.product_id.hs_code"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="o.get_country_origin(line)"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="int(line.quantity)"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="'{:.2f}'.format(line.price_unit)"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                         <span t-esc="'{:.2f}'.format(line.price_subtotal)"/>
+                                    </td>
+                                    <t t-set="counter" t-value="counter + 1"/>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="6"></td>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold">
+                                        Total
+                                    </span>
+                                </td>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold"
+                                            t-esc="'{:,}'.format(o.amount_total)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="8">
+                                    <p style="font-weight:bold;">
+                                        Total Amount In Words <span
+                                            t-esc="o.currency_id.name"/>- (<span style="text-transform: capitalize;"
+                                            t-esc="o.amount_in_words(o.amount_total)"/>)
+                                    </p>
+                                </td>
+                            </tr>
+<!--                            <tr>-->
+<!--                                <td colspan="8">-->
+<!--                                    <p style="font-weight:bold;">-->
+<!--                                        Mode of Transport: <span t-esc="o.mode_of_transport"/><br/>-->
+<!--                                        Destination: <span t-esc="o.partner_shipping_id.country_id.name"/><br/>-->
+<!--                                        Mode of Dispatch <span t-esc="o.mode_of_dispatch"/><br/>-->
+<!--                                        Weight in KG <span t-esc="o.total_product_weight"/>-->
+<!--                                    </p>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <div class="row">
+                    <span style="text-decoration:underline;">
+                        Vehicle Details-
+                    </span>
+                </div>
+                <div class="row">
+                    <table class="table table-bordered" style="border:1px solid black;">
+                        <thead>
+                            <th>SR#</th>
+                            <th>MODEL</th>
+                            <th>CHASSIS</th>
+                            <th>ENGINE</th>
+                            <th>COLOR</th>
+                        </thead>
+                        <tbody>
+                            <t t-set="counter" t-value="1"/>
+                            <t t-foreach="o.get_lot_ids()" t-as="line">
+                                <tr>
+                                    <td style="text-align:center;">
+                                        <span t-esc="counter"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="line.product_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.chassis_no"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="line.engine_no"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="line.color_external"/>
+                                    </td>
+                                    <t t-set="counter" t-value="counter + 1"/>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <br/><br/><br/><br/>
+                <div class="row">
+                    <span style="font-weight:bold;white-space:nowrap;">
+                        FOR SELLER (Signature &amp; Stamp):
+                    </span>
+                </div>
+                <br/><br/><br/><br/><br/>
+                <div class="row">
+                    <span t-esc="o.custom_invoice_note"/>
+                </div>
+                <t t-call="techbot_report_customisation.company_footer_invoice"/>
+            </div>
+        </t>
+    </template>
+
     <template id="report_invoice_custom">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.basic_layout">
-                    <div class="header">
-                        <div class="row" style="display:block;margin:0 auto;">
-                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)"
-                                style="height: 120px; width:60%;
-                                display:block;margin:0 auto;" alt="Logo"/>
-                        </div>
-                    </div>
-                    <div class="oe_structure"/>
-                    <div class="page">
-                        <div class="row" style="position: relative;text-align:center;">
-                            <span style="font-weight:bold;text-decoration:underline;
-                                position: absolute;left: 0; right: 0; margin: auto;">
-                                COMMERCIAL INVOICE
-                            </span>
-                        </div>
-                        <br/><br/><br/><br/><br/>
-                        <div class="row">
-                            <div class="col-8">
-                                <span style="font-weight:bold;">THE BUYER:</span>
-                                <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
-                                <br/>
-                                <span style="font-weight:bold;">ADD:</span>
-                                <span style="padding-left:5px;" t-esc="o.partner_id.street"/>
-                                <span style="padding-left:5px;" t-esc="o.partner_id.street2"/>
-                                <span style="padding-left:5px;" t-esc="o.partner_id.city"/>
-                                <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
-                                <br/>
-                                <span style="font-weight:bold;">MoB:</span>
-                                <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
-                            </div>
-                            <div class="col-4">
-                                <span style="font-weight:bold;">CI No.</span>
-                                <span style="padding-left:5px;" t-esc="o.name"/>
-                                <br/>
-                                <span style="font-weight:bold;">Date:</span>
-                                <span style="padding-left:5px;" t-esc="o.invoice_date"/>
-                                <br/>
-                                <span style="font-weight:bold;">Currency:</span>
-                                <span style="padding-left:5px;" t-esc="o.currency_id.name"/>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <table class="table table-bordered" style="border:1px solid black;">
-                                <thead>
-                                    <th>S/N</th>
-                                    <th>Make</th>
-                                    <th>Model Specification</th>
-                                    <th>HS-Code</th>
-                                    <th>Country of Origin</th>
-                                    <th>No. of Unit</th>
-                                    <th>Unit Price</th>
-                                    <th>Total Price</th>
-                                </thead>
-                                <tbody>
-                                    <t t-set="counter" t-value="1"/>
-                                    <t t-foreach="o.invoice_line_ids" t-as="line">
-                                        <tr>
-                                            <td style="text-align:center;">
-                                                <span t-esc="counter"/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="line.product_id.name"/><br/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="line.name"/><br/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="line.product_id.hs_code"/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="o.get_country_origin(line)"/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="line.quantity"/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="'{:,}'.format(line.price_unit)"/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                 <span t-esc="'{:,}'.format(line.price_subtotal)"/>
-                                            </td>
-                                            <t t-set="counter" t-value="counter + 1"/>
-                                        </tr>
-                                    </t>
-                                    <tr>
-                                        <td colspan="6"></td>
-                                        <td style="text-align:center;">
-                                            <span style="font-weight:bold">
-                                                Total
-                                            </span>
-                                        </td>
-                                        <td style="text-align:center;">
-                                            <span style="font-weight:bold"
-                                                    t-esc="'{:,}'.format(o.amount_total)"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="8">
-                                            <p style="font-weight:bold;">
-                                                Total Amount In Words <span
-                                                    t-esc="o.currency_id.name"/>- (<span style="text-transform: capitalize;"
-                                                    t-esc="o.amount_in_words(o.amount_total)"/>)
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="8">
-                                            <p style="font-weight:bold;">
-                                                Mode of Transport: <span t-esc="o.mode_of_transport"/><br/>
-                                                Destination: <span t-esc="o.partner_shipping_id.country_id.name"/><br/>
-                                                Mode of Dispatch <span t-esc="o.mode_of_dispatch"/><br/>
-                                                Weight in KG <span t-esc="o.total_product_weight"/>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <span style="text-decoration:underline;">
-                                Chassis Details-
-                            </span>
-                        </div>
-                        <div class="row">
-                            <table class="table table-bordered" style="border:1px solid black;">
-                                <thead>
-                                    <th>SR#</th>
-                                    <th>MODEL</th>
-                                    <th>DESCRIPTION</th>
-                                    <th>COLOR</th>
-                                    <th>CHASSIS</th>
-                                </thead>
-                                <tbody>
-                                    <t t-set="counter" t-value="1"/>
-                                    <t t-foreach="o.get_lot_ids()" t-as="line">
-                                        <tr>
-                                            <td style="text-align:center;">
-                                                <span t-esc="counter"/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="line.product_id.name"/>
-                                            </td>
-                                            <td>
-
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="line.color_external"/>
-                                            </td>
-                                            <td style="text-align:center;">
-                                                <span t-esc="line.chassis_no"/>
-                                            </td>
-                                            <t t-set="counter" t-value="counter + 1"/>
-                                        </tr>
-                                    </t>
-                                </tbody>
-                            </table>
-                        </div>
-                        <br/><br/><br/><br/>
-                        <div class="row">
-                            <span style="font-weight:bold;white-space:nowrap;">
-                                FOR SELLER (Signature &amp; Stamp):
-                            </span>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <div class="text-center">
-                            <ul class="list-inline">
-                                <t t-if="o.company_id.name">
-                                    <li class="list-inline-item">
-                                        <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                              t-esc="o.company_id.name"/>,
-                                    </li>
-                                </t>
-                                <t t-if="o.company_id.street">
-                                    <li class="list-inline-item">
-                                        <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                        t-esc="o.company_id.street"/>,
-                                    </li>
-                                </t>
-                                <t t-if="o.company_id.street2">
-                                    <li class="list-inline-item">
-                                        <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                              t-esc="o.company_id.street2"/>,
-                                    </li>
-                                </t>
-                                <t t-if="o.company_id.country_id.name">
-                                    <li class="list-inline-item">
-                                        <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                              t-esc="o.company_id.country_id.name"/>
-                                    </li>
-                                </t>
-                                <br/>
-                                <t t-if="o.company_id.phone">
-                                    <li class="list-inline-item">
-                                        <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                              t-esc="o.company_id.phone"/>
-                                    </li>
-                                </t>
-                                <t t-if="o.company_id.mobile">
-                                    <li class="list-inline-item">
-                                        <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                              t-esc="o.company_id.mobile"/>
-                                    </li>
-                                </t>
-                                <t t-if="o.company_id.email">
-                                    <li class="list-inline-item">
-                                        <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                              t-esc="o.company_id.email"/>
-                                    </li>
-                                </t>
-                            </ul>
-                        </div>
-                    </div>
-                </t>
+                <t t-set="lang" t-value="o.partner_id.lang"/>
+                <t t-call="techbot_report_customisation.custom_invoice_report"/>
             </t>
         </t>
     </template>
