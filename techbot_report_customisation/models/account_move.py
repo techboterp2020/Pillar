@@ -42,9 +42,14 @@ class AccountMove(models.Model):
             for line in line_ids:
                 sale_line_id = line.sale_line_ids
                 if sale_line_id:
-                    lot_ids = sale_line_id.move_ids.lot_ids
-                    if lot_ids:
-                        return lot_ids
+                    # lot_ids = sale_line_id.move_ids.lot_ids
+                    move_ids = sale_line_id.move_ids
+                    for move in move_ids:
+                        picking_id = move.picking_id
+                        if picking_id.picking_type_code == 'outgoing':
+                            move_line_ids = picking_id.move_line_ids_without_package
+                            if move_line_ids:
+                                return move_line_ids
 
     def get_total_product_weight(self):
         for rec in self:

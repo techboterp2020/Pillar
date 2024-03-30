@@ -5,14 +5,16 @@
         <table width="100%" height="100%">
             <tr width="100%">
                 <td width="100%" style="vertical-align: top;">
-                    <t t-if="o.company_id.enable_logo == True">
-                        <div style="display:block;margin:0 auto;">
-                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" class="text-center"
-                                 alt="Logo" style="width:60%;display:block;margin:0 auto;" height="150px"/>
-                        </div>
-                    </t>
-                    <br/><br/><br/><br/><br/>
-                    <div style="text-align:center;width:100%;text-decoration:underline;">
+<!--                    <t t-if="o.company_id.enable_logo == True">-->
+<!--                        <div style="display:block;margin:0 auto;">-->
+<!--                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" class="text-center"-->
+<!--                                 alt="Logo" style="width:60%;display:block;margin:0 auto;" height="150px"/>-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                    <t t-else="">-->
+<!--                        <div style="height:200px;"/>-->
+<!--                    </t>-->
+                    <div style="margin-top:300px;text-align:center;width:100%;text-decoration:underline;">
                         <h5>
                             <span style="font-weight:bold;">PRO-FORMA</span>
                         </h5>
@@ -20,66 +22,16 @@
                 </td>
             </tr>
         </table>
-        <br/><br/><br/><br/><br/>
-    </template>
-
-    <template id="company_footer_proforma">
-        <div class="footer">
-            <div class="text-center">
-                <ul class="list-inline">
-                    <t t-if="o.company_id.name">
-                        <li class="list-inline-item">
-                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                  t-esc="o.company_id.name"/>,
-                        </li>
-                    </t>
-                    <t t-if="o.company_id.street">
-                        <li class="list-inline-item">
-                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                            t-esc="o.company_id.street"/>,
-                        </li>
-                    </t>
-                    <t t-if="o.company_id.street2">
-                        <li class="list-inline-item">
-                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                  t-esc="o.company_id.street2"/>,
-                        </li>
-                    </t>
-                    <t t-if="o.company_id.country_id.name">
-                        <li class="list-inline-item">
-                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                  t-esc="o.company_id.country_id.name"/>
-                        </li>
-                    </t>
-                    <br/>
-                    <t t-if="o.company_id.phone">
-                        <li class="list-inline-item">
-                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                  t-esc="o.company_id.phone"/>
-                        </li>
-                    </t>
-                    <t t-if="o.company_id.mobile">
-                        <li class="list-inline-item">
-                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                  t-esc="o.company_id.mobile"/>
-                        </li>
-                    </t>
-                    <t t-if="o.company_id.email">
-                        <li class="list-inline-item">
-                            <span style="font-weight:bold;font-style: italic;color:#5A5A5A;"
-                                  t-esc="o.company_id.email"/>
-                        </li>
-                    </t>
-                </ul>
-            </div>
-        </div>
+        <br/><br/><br/>
     </template>
 
      <template id="custom_proforma_report">
         <t t-call="web.basic_layout">
             <div class="oe_structure"/>
             <div class="page"
-                 t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});padding:10px;min-height: 1690px;">
+                 t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});
+                 padding:10px;background-size: cover;background-repeat: no-repeat;
+                     width: 100%;min-height:1753px;">
                 <t t-call="techbot_report_customisation.company_header_proforma"/>
                 <div class="row">
                     <div class="col-8">
@@ -183,9 +135,16 @@
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td colspan="8"/>
-                            </tr>
+<!--                            <tr>-->
+<!--                                <td colspan="8"/>-->
+<!--                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <div class="row">
+                    <table class="table table-bordered" style="border:1px solid black;">
+                        <tbody>
                             <tr>
                                 <td colspan="8">
                                     <span style="font-weight:bold">
@@ -207,9 +166,16 @@
                                     </p>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="8"/>
-                            </tr>
+<!--                            <tr>-->
+<!--                                <td colspan="8"/>-->
+<!--                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <div class="row">
+                    <table class="table table-bordered" style="border:1px solid black;">
+                        <tbody>
                             <tr>
                                 <td colspan="8">
                                     <p>
@@ -230,7 +196,6 @@
                         FOR SELLER (Signature &amp; Stamp):
                     </span>
                 </div>
-                <t t-call="techbot_report_customisation.company_footer_proforma"/>
             </div>
         </t>
      </template>
