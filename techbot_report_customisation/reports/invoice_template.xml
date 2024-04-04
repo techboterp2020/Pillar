@@ -44,6 +44,29 @@
                         <br/>
                         <span style="font-weight:bold;">MoB:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
+                        <br/>
+                        <span style="font-weight:bold;">Exporter/Seller:</span><br/>
+                        <t t-if="o.company_id.name">
+                            <span t-field="o.company_id.name"/><br/>
+                        </t>
+                        <t t-if="o.company_id.street">
+                            <span t-field="o.company_id.street"/><br/>
+                        </t>
+                        <t t-if="o.company_id.street2">
+                            <span t-field="o.company_id.street2"/><br/>
+                        </t>
+                        <t t-if="o.company_id.city">
+                            <span t-field="o.company_id.city"/>
+                        </t>
+                        <t t-if="o.company_id.country_id.name">
+                            <span style="padding-left:5px;" t-field="o.company_id.country_id.name"/><br/>
+                        </t>
+                        <t t-if="o.company_id.phone">
+                            <span t-field="o.company_id.phone"/><br/>
+                        </t>
+                        <t t-if="o.company_id.vat">
+                            <span t-field="o.company_id.vat"/>
+                        </t>
                     </div>
                     <div class="col-4">
                         <span style="font-weight:bold;">CI No.</span>
@@ -54,6 +77,17 @@
                         <br/>
                         <span style="font-weight:bold;">Currency:</span>
                         <span style="padding-left:5px;" t-esc="o.currency_id.name"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-8">
+                        <span style="font-weight:bold;">Consignee:</span>
+                        <span style="padding-left:5px;" t-esc="o.consignee_id.name"/>
+                    </div>
+                    <div class="col-4">
+                        <span style="font-weight:bold;">Buyer(if not consignee):</span>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
                     </div>
                 </div>
                 <br/>
@@ -104,7 +138,35 @@
                                 <td colspan="6"></td>
                                 <td style="text-align:center;">
                                     <span style="font-weight:bold">
-                                        Total
+                                        Add Charge or Discount
+                                    </span>
+                                </td>
+                                <t t-set="discount_total" t-value="0"/>
+                                <t t-foreach="o.invoice_line_ids" t-as="line">
+                                    <t t-set="discount_total" t-value="discount_total + line.discount"/>
+                                </t>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold"
+                                            t-esc="'{:,}'.format(discount_total)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"></td>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold">
+                                        Tax
+                                    </span>
+                                </td>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold"
+                                            t-esc="'{:,}'.format(o.amount_tax)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"></td>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold">
+                                        Invoice Total
                                     </span>
                                 </td>
                                 <td style="text-align:center;">
@@ -135,46 +197,48 @@
                     </table>
                 </div>
                 <br/>
-                <div class="row">
-                    <span style="text-decoration:underline;">
-                        Vehicle Details-
-                    </span>
-                </div>
-                <div class="row">
-                    <table class="table table-bordered" style="border:1px solid black;">
-                        <thead>
-                            <th>SR#</th>
-                            <th>MODEL</th>
-                            <th>CHASSIS</th>
-                            <th>ENGINE</th>
-                            <th>COLOR</th>
-                        </thead>
-                        <tbody>
-                            <t t-set="counter" t-value="1"/>
-                            <t t-foreach="o.get_lot_ids()" t-as="line">
-                                <tr>
-                                    <td style="text-align:center;">
-                                        <span t-esc="counter"/>
-                                    </td>
-                                    <td style="text-align:center;">
-                                        <span t-esc="line.product_id.name"/>
-                                    </td>
-                                    <td>
-                                        <span t-esc="line.chassis_no_related"/>
-                                    </td>
-                                    <td style="text-align:center;">
-                                        <span t-esc="line.engine_no_related"/>
-                                    </td>
-                                    <td style="text-align:center;">
-                                        <span t-esc="line.color_external_related"/>
-                                    </td>
-                                    <t t-set="counter" t-value="counter + 1"/>
-                                </tr>
-                            </t>
-                        </tbody>
-                    </table>
-                </div>
-                <br/><br/><br/><br/>
+                <t t-if="o.vehicle_related">
+                    <div class="row">
+                        <span style="text-decoration:underline;">
+                            Vehicle Details-
+                        </span>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered" style="border:1px solid black;">
+                            <thead>
+                                <th>SR#</th>
+                                <th>MODEL</th>
+                                <th>CHASSIS</th>
+                                <th>ENGINE</th>
+                                <th>COLOR</th>
+                            </thead>
+                            <tbody>
+                                <t t-set="counter" t-value="1"/>
+                                <t t-foreach="o.get_lot_ids()" t-as="line">
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <span t-esc="counter"/>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <span t-esc="line.product_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.chassis_no_related"/>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <span t-esc="line.engine_no_related"/>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <span t-esc="line.color_external_related"/>
+                                        </td>
+                                        <t t-set="counter" t-value="counter + 1"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br/><br/><br/><br/>
+                </t>
                 <div class="row">
                     <span style="font-weight:bold;white-space:nowrap;">
                         FOR SELLER (Signature &amp; Stamp):

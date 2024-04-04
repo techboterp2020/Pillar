@@ -16,6 +16,8 @@ class AccountMove(models.Model):
         string="Invoice Terms and conditions",
         compute='_compute_custom_invoice_note',
         store=True, readonly=False, precompute=True)
+    vehicle_related = fields.Boolean(string='Vehicle Related')
+    consignee_id = fields.Many2one('res.partner', string='Consignee')
 
     @api.depends('partner_id')
     def _compute_custom_invoice_note(self):

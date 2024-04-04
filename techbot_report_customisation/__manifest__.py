@@ -10,9 +10,11 @@
         'reports/reports.xml',
         'reports/proforma_template.xml',
         'reports/invoice_template.xml',
+        'reports/report_deliveryslip_inherit.xml',
         'views/res_company_view.xml',
         'views/sale_order_view.xml',
-        'views/account_move_view.xml'
+        'views/account_move_view.xml',
+        'views/stock_picking_view.xml'
     ],
     'installable': True,
     'auto_install': False,

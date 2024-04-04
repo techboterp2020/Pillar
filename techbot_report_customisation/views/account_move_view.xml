@@ -9,6 +9,8 @@
            <xpath expr="//field[@name='partner_shipping_id']" position="after">
                <field name="mode_of_transport"/>
                <field name="mode_of_dispatch"/>
+               <field name="vehicle_related"/>
+               <field name="consignee_id"/>
            </xpath>
            <xpath expr="//div[@name='journal_div']" position="after">
                <field name="total_product_weight"/>

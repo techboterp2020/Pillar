@@ -43,8 +43,8 @@
                         <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
                     </div>
                     <div class="col-4">
-                        <span style="font-weight:bold;">PR No.</span>
-                        <span style="padding-left:5px;" t-esc="o.client_order_ref"/>
+                        <span style="font-weight:bold;">PI No.</span>
+                        <span style="padding-left:5px;">PI/</span><span t-esc="o.name"/>
                         <br/>
                         <span style="font-weight:bold;">Date:</span>
                         <span style="padding-left:5px;" t-esc="o.date_order.strftime('%d-%m-%Y')"/>
@@ -54,22 +54,23 @@
                     </div>
                 </div>
                 <br/>
-                <div class="row">
-                    <p style="font-weight:bold;text-decoration:underline">
-                        SUBJECT: <span t-esc="o.subject"/>
-                    </p>
+<!--                <div class="row">-->
+<!--                    <p style="font-weight:bold;text-decoration:underline">-->
+<!--                        SUBJECT: <span t-esc="o.subject"/>-->
+<!--                    </p>-->
 
-                </div>
-                <br/>
+<!--                </div>-->
+<!--                <br/>-->
                 <div class="row">
                     <table class="table table-bordered" style="border:1px solid black;">
                         <thead>
                             <th>S/N</th>
-                            <th>Make</th>
-                            <th>Model Specification</th>
+                            <th>Item Description</th>
+<!--                            <th>Model Specification</th>-->
                             <th>HS-Code</th>
                             <th>Country of Origin</th>
-                            <th>No. of Unit</th>
+                            <th>Unit of Measurement</th>
+                            <th>Qty</th>
                             <th>Unit Price</th>
                             <th>Total Price</th>
                         </thead>
@@ -80,13 +81,13 @@
                                     <td style="text-align:center;">
                                         <span t-esc="counter"/>
                                     </td>
-                                    <td style="text-align:center;">
-                                        <span t-esc="line.product_id.name"/><br/>
-                                        <t t-if="line.product_id.x_studio_vehicle_type">
-                                            <span>Model:</span>
-                                            <span style="padding-left:5px;" t-esc="line.product_id.x_studio_vehicle_type"/>
-                                        </t>
-                                    </td>
+<!--                                    <td style="text-align:center;">-->
+<!--                                        <span t-esc="line.product_id.name"/><br/>-->
+<!--                                        <t t-if="line.product_id.x_studio_vehicle_type">-->
+<!--                                            <span>Model:</span>-->
+<!--                                            <span style="padding-left:5px;" t-esc="line.product_id.x_studio_vehicle_type"/>-->
+<!--                                        </t>-->
+<!--                                    </td>-->
                                     <td style="text-align:center;">
                                         <span t-esc="line.name"/><br/>
                                         <t t-if="line.product_id.x_studio_vehicle_type">
@@ -99,6 +100,9 @@
                                     </td>
                                     <td style="text-align:center;">
                                         <span t-esc="o.get_country_origin(line)"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-esc="line.product_uom.name"/>
                                     </td>
                                     <td style="text-align:center;">
                                         <span t-esc="line.product_uom_qty"/>
@@ -180,8 +184,7 @@
                                 <td colspan="8">
                                     <p>
                                         <span style="font-weight:bold;text-decoration:underline;">
-                                            THE BUYER HAVE AGREED TO EXECUTE THE FOLLOWING TRANSACTION ACCORDING
-                                            TO THE TERMS AND CONDITIONS STIPULATED BELOW:</span><br/>
+                                            TERMS AND CONDITIONS:</span><br/>
                                             1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
                                             <span t-esc="o.custom_sale_note"/>
                                     </p>
