@@ -2,9 +2,9 @@
 <odoo>
 
     <template id="company_header_proforma">
-        <table width="100%" height="100%">
+        <!-- <table width="100%" height="100%">
             <tr width="100%">
-                <td width="100%" style="vertical-align: top;">
+                <td width="100%" style="vertical-align: top;"> -->
 <!--                    <t t-if="o.company_id.enable_logo == True">-->
 <!--                        <div style="display:block;margin:0 auto;">-->
 <!--                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" class="text-center"-->
@@ -19,9 +19,9 @@
                             <span style="font-weight:bold;">PRO-FORMA</span>
                         </h5>
                     </div>
-                </td>
+                <!-- </td>
             </tr>
-        </table>
+        </table> -->
         <br/><br/><br/>
     </template>
 
@@ -39,6 +39,8 @@
                         <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
                         <br/>
                         <span style="font-weight:bold;">ADD:</span>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.street"/>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.street2"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.city"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
                     </div>
@@ -120,6 +122,18 @@
                                 <td colspan="6"></td>
                                 <td style="text-align:center;">
                                     <span style="font-weight:bold">
+                                        Tax
+                                    </span>
+                                </td>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold;"
+                                            t-esc="'{:,}'.format(o.amount_tax)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"></td>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold">
                                         Total
                                     </span>
                                 </td>
@@ -132,9 +146,14 @@
                                 <td colspan="8">
                                     <p style="font-weight:bold">
                                         Total Amount To Be Paid <span
-                                            t-esc="o.currency_id.name"/>- <span
-                                            t-esc="'{:,}'.format(o.amount_total)"/>/- (<span style="text-transform: capitalize;"
-                                            t-esc="o.amount_in_words(o.amount_total)"/>)
+                                            t-esc="o.currency_id.name"/>-
+                                            (<span
+                                             style="text-transform: capitalize;"
+                                            t-esc="o.amount_in_words(o.amount_total)"/>)/
+                                            <!-- <span
+                                                t-esc="o.currency_id.name"/>- <span
+                                                t-esc="'{:,}'.format(o.amount_total)"/>/- (<span style="text-transform: capitalize;"
+                                                t-esc="o.amount_in_words(o.amount_total)"/>) -->
                                     </p>
                                 </td>
                             </tr>
@@ -184,9 +203,10 @@
                                 <td colspan="8">
                                     <p>
                                         <span style="font-weight:bold;text-decoration:underline;">
-                                            TERMS AND CONDITIONS:</span><br/>
-                                            1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
-                                            <span t-esc="o.custom_sale_note"/>
+                                            TERMS AND CONDITIONS:</span><br/>/
+                                            <span t-esc="o.note"/>
+                                            <!-- 1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
+                                            <span t-esc="o.custom_sale_note"/> -->
                                     </p>
                                 </td>
                             </tr>

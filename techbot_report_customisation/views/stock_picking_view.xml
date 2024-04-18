@@ -41,7 +41,8 @@
        <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
        <field name="arch" type="xml">
            <xpath expr="//tree/field[@name='product_uom_id']" position="after">
-               <field name="measurement"/>
+               <field name="measurement" invisible="1"/>
+               <field name="measurements"/>
                <field name="net_weight"/>
                <field name="total_weight"/>
                <field name="remarks"/>

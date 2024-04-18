@@ -11,6 +11,7 @@
                <field name="mode_of_dispatch"/>
                <field name="vehicle_related"/>
                <field name="consignee_id"/>
+               <field name="bl_no"/>
            </xpath>
            <xpath expr="//div[@name='journal_div']" position="after">
                <field name="total_product_weight"/>
