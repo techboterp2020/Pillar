@@ -430,6 +430,12 @@
                         <strong>Additional Information:</strong>
                         <span t-field="o.note"/>
                     </div>
+                    <br/>
+                    <div>
+                        <strong>For Seller (Signature and Stamp)</strong>
+                    </div>
+
+                    <br/>
                     <div t-if="o.signature" class="mt32 ml64 mr4" name="signature">
                         <div class="offset-8">
                             <strong>Signature</strong>
