@@ -101,7 +101,7 @@
                                         <span t-esc="line.product_id.hs_code"/>
                                     </td>
                                     <td style="text-align:center;">
-                                        <span t-esc="o.get_country_origin(line)"/>
+                                        <span t-field="line.product_id.country_of_origin"/>
                                     </td>
                                     <td style="text-align:center;">
                                         <span t-esc="line.product_uom.name"/>
@@ -149,7 +149,7 @@
                                             t-esc="o.currency_id.name"/>-
                                             (<span
                                              style="text-transform: capitalize;"
-                                            t-esc="o.amount_in_words(o.amount_total)"/>)/
+                                            t-esc="o.amount_in_words(o.amount_total)"/>)
                                             <!-- <span
                                                 t-esc="o.currency_id.name"/>- <span
                                                 t-esc="'{:,}'.format(o.amount_total)"/>/- (<span style="text-transform: capitalize;"
@@ -178,13 +178,16 @@
                             <tr>
                                 <td colspan="8">
                                     <p>
-                                        BENEFICIARY: <span t-esc="o.company_id.name"/><br/>
-                                        Bank Details: <span t-esc="o.company_id.bank_details"/><br/>
-                                        Bank Address: <span t-esc="o.company_id.bank_address"/><br/>
-                                        UAE SWIFT CODE <span t-esc="o.company_id.swift_code"/><br/>
-                                        ACCOUNT NO. (<span t-esc="o.currency_id.name"/>)
-                                        <span t-esc="o.company_id.account_no"/> <br/>
-                                        IBAN No. (<span t-esc="o.currency_id.name"/>)
+                                        BENEFICIARY: <span t-esc="o.partner_bank_id.beneficiary"/><br/>
+                                        Bank Details: <span t-esc="o.partner_bank_id.bank_id.name"/><br/>
+                                        Bank Address: <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.street"/>
+                                        <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.street2"/>
+                                        <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.city"/>
+                                         <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.country.name"/><br/>
+                                        UAE SWIFT CODE :<span t-esc="o.partner_bank_id.swift_code"/><br/>
+                                        ACCOUNT NO. (<span t-esc="o.currency_id.name"/>):
+                                        <span t-esc="o.partner_bank_id.acc_number"/> <br/>
+                                        IBAN No. (<span t-esc="o.currency_id.name"/>):
                                         <span t-esc="o.company_id.iban_no"/>
                                     </p>
                                 </td>
@@ -203,7 +206,7 @@
                                 <td colspan="8">
                                     <p>
                                         <span style="font-weight:bold;text-decoration:underline;">
-                                            TERMS AND CONDITIONS:</span><br/>/
+                                            TERMS AND CONDITIONS:</span><br/>
                                             <span t-esc="o.note"/>
                                             <!-- 1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
                                             <span t-esc="o.custom_sale_note"/> -->

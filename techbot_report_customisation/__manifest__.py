@@ -5,8 +5,9 @@
     'category': 'Reports',
     'summary': """Reports for Proforma and Invoice""",
     'author': 'Techbot Information Technology LLC',
-    'depends': ['sale_management'],
+    'depends': ['sale_management','account'],
     'data': [
+        'views/res_partner_bank.xml',
         'reports/reports.xml',
         'reports/proforma_template.xml',
         'reports/invoice_template.xml',
