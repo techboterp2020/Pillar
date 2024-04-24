@@ -484,11 +484,11 @@
                         <span t-field="o.note"/>
                     </div>
                     <br/>
-                    <div>
+                    <!-- <div>
                         <strong>For Seller (Signature and Stamp)</strong>
-                    </div>
+                    </div> -->
 
-                    <br/>
+                    <!-- <br/>
                     <div t-if="o.signature" class="mt32 ml64 mr4" name="signature">
                         <div class="offset-8">
                             <strong>Signature</strong>
@@ -499,7 +499,7 @@
                         <div class="offset-8 text-center">
                             <p t-field="o.partner_id.name"/>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </t>
         </xpath>
