@@ -19,6 +19,19 @@ class AccountMove(models.Model):
     vehicle_related = fields.Boolean(string='Vehicle Related')
     consignee_id = fields.Many2one('res.partner', string='Consignee')
     bl_no = fields.Char(string='BL/AWB/TWB No.')
+    method_of_dispatch = fields.Char(string='Method of Dispatch')
+    type_of_shipment = fields.Char(string='Type of Shipment')
+    delivery_term = fields.Char('Delivery Term')
+    country_final_destination = fields.Char(string='Country of Final Destination')
+    transport_type = fields.Char(string='Vessel/Aircraft/Truck')
+    voyage_no = fields.Char(string='Voyage No.')
+    terms_method_payment = fields.Char('Terms/Method of payment')
+    port_of_loading = fields.Char('Port of Loading')
+    departure_date = fields.Date(string='Date of Departure')
+    port_of_discharge = fields.Char(string='Port of Discharge')
+    final_destination = fields.Char(string='Final Destination')
+    marine_cover = fields.Char(string='Marine Cover Policy No.')
+    letter_of_credit = fields.Char(string='Letter of Credit No.')
 
     @api.depends('partner_id')
     def _compute_custom_invoice_note(self):
@@ -29,6 +42,15 @@ class AccountMove(models.Model):
 
     def amount_in_words(self, amount):
         return num2words(amount)
+
+    def get_product_lot(self, line_id):
+        for rec in self:
+            product_id = line_id.product_id
+            sale_line_id = line_id.sale_line_ids
+            if sale_line_id:
+                lot_ids = sale_line_id.move_ids.lot_ids
+                for lot in lot_ids:
+                    return lot.model_year    
 
     def get_country_origin(self, line_id):
         for rec in self:

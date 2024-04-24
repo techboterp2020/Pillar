@@ -21,6 +21,27 @@
                     <field name="custom_invoice_note" placeholder="Invoice Terms and Conditions" colspan="2" nolabel="1"/>
                 </group>
            </xpath>
+           <xpath expr="//page[@name='other_info']" position="inside">
+                <group>
+                    <group>
+                        <field name="method_of_dispatch"/>
+                        <field name="type_of_shipment"/>
+                        <field name="delivery_term"/>
+                        <field name="voyage_no"/>
+                        <field name="terms_method_payment"/>
+                        <field name="port_of_discharge"/>
+                        <field name="final_destination"/>
+                    </group>
+                    <group>
+                        <field name="transport_type"/>
+                        <field name="country_final_destination"/>
+                        <field name="port_of_loading"/>
+                        <field name="departure_date"/>
+                        <field name="marine_cover"/>
+                        <field name="letter_of_credit"/>
+                    </group>
+                </group> 
+            </xpath>           
        </field>
     </record>
 

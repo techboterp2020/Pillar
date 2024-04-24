@@ -18,7 +18,8 @@
                    <group>
                        <field name="method_of_dispatch"/>
                        <field name="type_of_shipment"/>
-                       <field name="country_origin_goods"/>
+                       <field name="country_origin_goods" invisible="1"/>
+                       <field name="delivery_term"/>
                        <field name="country_final_destination"/>
                        <field name="transport_type"/>
                        <field name="total_measurement"/>

@@ -163,9 +163,9 @@
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Country of Origin of Goods:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;">Delivery Term:</span> 
                                 </div>
-                                <span style="padding-left:5px;" t-field="o.country_origin_goods"/>
+                                <span style="padding-left:5px;" t-field="o.delivery_term"/>
                             </td>
                             <td>
                                 <div>
@@ -487,12 +487,16 @@
                         </table>
                     </t>
                     <br/>
-                    <div class="row">
-                        <strong>Additional Information:</strong>
+                    <div>
+                        <span>
+
+                            <b>Additional Information:</b>
+                        </span>
                         <br/>
                         <span t-field="o.note"/>
                     </div>
                     <br/>
+                    
                     <!-- <div>
                         <strong>For Seller (Signature and Stamp)</strong>
                     </div> -->

@@ -11,6 +11,7 @@ class StockPicking(models.Model):
     method_of_dispatch = fields.Char(string='Method of Dispatch')
     type_of_shipment = fields.Char(string='Type of Shipment')
     country_origin_goods = fields.Char(string='Country of Origin of Goods')
+    delivery_term = fields.Char('Delivery Term')
     country_final_destination = fields.Char(string='Country of Final Destination')
     transport_type = fields.Char(string='Vessel/Aircraft/Truck')
     voyage_no = fields.Char(string='Voyage No.')

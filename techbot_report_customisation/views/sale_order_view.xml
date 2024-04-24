@@ -10,6 +10,7 @@
                <field name="subject"/>
            </xpath>
            <xpath expr="//field[@name='subject']" position="after">
+                <field name="available_partner_bank_ids" invisible="1"/>
                 <field name="partner_bank_id"/>
             </xpath>
            <xpath expr="//group[@name='note_group']/group[1]" position="after">
