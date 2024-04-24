@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Reports Customisation',
-    'version': '16.0.1.1.0',
+    'version': '16.0.2.1.0',
     'category': 'Reports',
     'summary': """Reports for Proforma and Invoice""",
     'author': 'Techbot Information Technology LLC',

@@ -55,10 +55,13 @@
                         <t t-if="o.company_id.phone">
                             <span t-field="o.company_id.phone"/><br/>
                         </t>
+                        <t t-if="o.company_id.mobile">
+                            <span t-field="o.company_id.mobile"/><br/>
+                        </t>
                         <t t-if="o.company_id.vat">
                             <span t-field="o.company_id.vat"/>
                         </t>
-                        <br />
+                        <br/>
                         <span style="font-weight:bold;">THE BUYER:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
                         <br/>
@@ -70,6 +73,7 @@
                         <br/>
                         <span style="font-weight:bold;">MoB:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
+                        <span style="padding-left:5px;" t-esc="o.partner_id.mobile"/>
                         
                         
                     </div>
@@ -112,7 +116,7 @@
                             <span style="font-weight:bold;padding-left:5px;">Type of Shipment</span> 
                         </td>
                         <td>
-
+                            <span style="font-weight:bold;padding-left:5px;">Country of Origin of the Goods</span> 
                         </td>
                         <td>
                             <span style="font-weight:bold;padding-left:5px">Country of Final Destination</span> 

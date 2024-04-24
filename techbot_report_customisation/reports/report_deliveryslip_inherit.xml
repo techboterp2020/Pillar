@@ -84,6 +84,9 @@
                             <t t-if="o.company_id.phone">
                                 <span t-field="o.company_id.phone"/><br/>
                             </t>
+                            <t t-if="o.company_id.mobile">
+                                <span t-field="o.company_id.mobile"/><br/>
+                            </t>
                             <t t-if="o.company_id.vat">
                                 <span t-field="o.company_id.vat"/>
                             </t>
@@ -123,6 +126,9 @@
                             <t t-if="o.consignee_id.phone">
                                 <span t-field="o.consignee_id.phone"/><br/>
                             </t>
+                            <t t-if="o.consignee_id.mobile">
+                                <span t-field="o.consignee_id.mobile"/><br/>
+                            </t>
                         </div>
                         <div class="col-5">
                             <span><strong>Buyer(if not consignee):</strong></span><br/>
@@ -141,6 +147,9 @@
                             </t>
                             <t t-if="o.partner_id.phone">
                                 <span t-field="o.partner_id.phone"/><br/>
+                            </t>
+                            <t t-if="o.partner_id.mobile">
+                                <span t-field="o.partner_id.mobile"/><br/>
                             </t>
                         </div>
                     </div>
