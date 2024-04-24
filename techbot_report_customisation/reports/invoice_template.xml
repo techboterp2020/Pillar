@@ -71,7 +71,7 @@
                         <span style="padding-left:5px;" t-esc="o.partner_id.city"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
                         <br/>
-                        <span style="font-weight:bold;">MoB:</span>
+                        <span style="font-weight:bold;">MOB:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.mobile"/>
                         

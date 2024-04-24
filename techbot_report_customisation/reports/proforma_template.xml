@@ -44,7 +44,7 @@
                         <span style="padding-left:5px;" t-esc="o.partner_id.city"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
                         <br/>
-                        <span style="font-weight:bold;">MoB:</span>
+                        <span style="font-weight:bold;">MOB:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.mobile"/>
                     </div>
@@ -192,7 +192,7 @@
                                         ACCOUNT NO. (<span t-esc="o.currency_id.name"/>):
                                         <span t-esc="o.partner_bank_id.acc_number"/> <br/>
                                         IBAN No. (<span t-esc="o.currency_id.name"/>):
-                                        <span t-esc="o.company_id.iban_no"/>
+                                        <span t-esc="o.partner_bank_id.iban_no"/>
                                     </p>
                                 </td>
                             </tr>

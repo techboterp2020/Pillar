@@ -14,7 +14,7 @@ class SaleOrder(models.Model):
         string="Sale Terms and conditions",
         compute='_compute_custom_sale_note',
         store=True, readonly=False, precompute=True)
-    partner_bank_id = fields.Many2one('res.partner.bank', string='Bank')    
+    partner_bank_id = fields.Many2one('res.partner.bank', string='Bank',domain="[('company_id', '=', company_id)]",)    
 
     @api.depends('partner_id')
     def _compute_custom_sale_note(self):
