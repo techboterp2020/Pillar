@@ -21,6 +21,7 @@
                        <field name="country_origin_goods"/>
                        <field name="country_final_destination"/>
                        <field name="transport_type"/>
+                       <field name="total_measurement"/>
                    </group>
                    <group>
                        <field name="voyage_no"/>
@@ -42,7 +43,6 @@
        <field name="arch" type="xml">
            <xpath expr="//tree/field[@name='product_uom_id']" position="after">
                <field name="measurement"/>
-               <field name="measurements" invisible="1"/>
                <field name="net_weight"/>
                <field name="total_weight"/>
                <field name="remarks"/>

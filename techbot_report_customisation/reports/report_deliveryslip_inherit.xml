@@ -342,7 +342,7 @@
                                     <center><b>Total</b></center>
                                 </td>
                                 <td>
-                                    <!-- <span t-esc="total_measurement"/> -->
+                                    <span t-esc="o.total_measurement"/>
                                 </td>
                                 <td>
                                     <span t-esc="total_net_weight"/>

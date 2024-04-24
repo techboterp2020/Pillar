@@ -23,6 +23,7 @@ class StockPicking(models.Model):
     vehicle_related = fields.Boolean(string='Vehicle Related')
     ci_no = fields.Char(string="CI No.",compute='_compute_invoice_value')
     invoice_date = fields.Date(string="Date",compute='_compute_invoice_value')
+    total_measurement = fields.Char('Total Measurement')
     
     @api.depends('sale_id')
     def _compute_invoice_value(self):
@@ -43,7 +44,6 @@ class StockMoveLine(models.Model):
     _inherit = 'stock.move.line'
 
     measurement = fields.Char(string='Measurement')
-    measurements = fields.Float(string='Measurement')
     net_weight = fields.Float(string='Net Weight')
     total_weight = fields.Float(string='Total Weight')
     remarks = fields.Char(string='Remarks')
