@@ -24,21 +24,21 @@
            <xpath expr="//page[@name='other_info']" position="inside">
                 <group>
                     <group>
-                        <field name="method_of_dispatch"/>
-                        <field name="type_of_shipment"/>
-                        <field name="delivery_term"/>
-                        <field name="voyage_no"/>
-                        <field name="terms_method_payment"/>
-                        <field name="port_of_discharge"/>
-                        <field name="final_destination"/>
+                        <field name="method_of_dispatch" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="type_of_shipment" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="delivery_term" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="voyage_no" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="terms_method_payment" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="port_of_discharge" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="final_destination" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
                     </group>
                     <group>
-                        <field name="transport_type"/>
-                        <field name="country_final_destination"/>
-                        <field name="port_of_loading"/>
-                        <field name="departure_date"/>
-                        <field name="marine_cover"/>
-                        <field name="letter_of_credit"/>
+                        <field name="transport_type" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="country_final_destination" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="port_of_loading" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="departure_date" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="marine_cover" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
+                        <field name="letter_of_credit" attrs="{'invisible':[('move_type', '!=', 'out_invoice')]}"/>
                     </group>
                 </group> 
             </xpath>           
