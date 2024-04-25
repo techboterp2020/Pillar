@@ -280,7 +280,7 @@
                                 </t>
                                 <td style="text-align:center;">
                                     <span style="font-weight:bold"
-                                            t-esc="'{:,}'.format(discount_total)"/>
+                                            t-esc="'{:,}'.format(discount_total)"/>%
                                 </td>
                             </tr>
                             <tr>

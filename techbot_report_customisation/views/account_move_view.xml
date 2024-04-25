@@ -7,8 +7,8 @@
        <field name="inherit_id" ref="account.view_move_form"/>
        <field name="arch" type="xml">
            <xpath expr="//field[@name='partner_shipping_id']" position="after">
-               <field name="mode_of_transport"/>
-               <field name="mode_of_dispatch"/>
+               <field name="mode_of_transport" invisible="1"/>
+               <field name="mode_of_dispatch" invisible="1"/>
                <field name="vehicle_related"/>
                <field name="consignee_id"/>
                <field name="bl_no"/>

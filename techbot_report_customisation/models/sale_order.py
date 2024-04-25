@@ -71,3 +71,9 @@ class SaleOrder(models.Model):
             lot_ids = line_id.move_ids.lot_ids
             for lot in lot_ids:
                 return lot.make
+
+
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'    
+
+    year_of_production = fields.Char('Year of Production')            

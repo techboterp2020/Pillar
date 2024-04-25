@@ -97,10 +97,10 @@
 <!--                                    </td>-->
                                     <td style="text-align:center;">
                                         <span t-esc="line.name"/><br/>
-                                        <!-- <t t-if="line.product_id.x_studio_vehicle_type">
+                                        <!-- <t t-if="line.product_id.x_studio_vehicle_type"> -->
                                             <span>Year of production:</span>
-                                            <span style="padding-left:5px;" t-esc="o.get_product_lot(line)"/>
-                                        </t> -->
+                                            <span style="padding-left:5px;" t-esc="line.year_of_production"/>
+                                        <!-- </t> -->
                                     </td>
                                     <td style="text-align:center;">
                                         <span t-esc="line.product_id.hs_code"/>
