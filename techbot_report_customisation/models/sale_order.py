@@ -10,18 +10,6 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
 
-    # def get_banks(self):
-    #     for each in self:
-    #         bank_ids = self.env['res.partner.bank'].search([('partner_id','in',each.company_id.partner_id.ids)])
-    #         if bank_ids:
-    #             return {"domain": {"partner_id": bank_ids.ids}}
-
-    @api.onchange("partner_bank_id")
-    def _onchange_partner_id(self):
-        for each in self:
-            bank_ids = self.env['res.partner.bank'].search([('partner_id','=',each.company_id.partner_id.id)])
-        return {"domain": {"partner_id": [("id", "in", bank_ids.ids)]}}
-
     subject = fields.Text(string='Subject')
     custom_sale_note = fields.Html(
         string="Sale Terms and conditions",
