@@ -304,16 +304,12 @@
                         <tbody>
                             <t t-set="total_measurement" t-value="0"/>
                             <t t-set="total_net_weight" t-value="0"/>
-                            <!-- <t t-foreach="o.move_line_ids " t-as="line"> -->
-                            <t t-foreach="o.move_ids " t-as="line">
+                            <t t-foreach="o.move_line_ids " t-as="line">
                                 <tr>
                                     <td>
                                         <span t-field="line.product_id.name"/>
-                                        <!-- <p t-if="line.move_id.description_picking != line.product_id.name and line.move_id.description_picking != line.product_id.display_name">
+                                        <p t-if="line.move_id.description_picking != line.product_id.name and line.move_id.description_picking != line.product_id.display_name">
                                             <span t-field="line.move_id.description_picking"/>
-                                        </p> -->
-                                        <p t-if="line.description_picking != line.product_id.name and line.description_picking != line.product_id.display_name">
-                                            <span t-field="line.description_picking"/>
                                         </p>
                                     </td>
                                     <td>
@@ -323,7 +319,7 @@
                                         <span t-field="line.product_id.country_of_origin"/>
                                     </td>
                                     <td>
-                                        <span t-field="line.quantity_done"/>
+                                        <span t-field="line.qty_done"/>
                                     </td>
                                     <td>
                                         <span t-field="line.measurement"/>
@@ -331,7 +327,7 @@
                                     </td>
                                     <td>
                                         <span t-field="line.net_weight"/>
-                                        <t t-set="total_net_weight" t-value="line.quantity_done * line.net_weight"/>
+                                        <t t-set="total_net_weight" t-value="total_net_weight + line.net_weight"/>
                                     </td>
                                     <td>
                                         <span t-field="line.total_weight"/>
