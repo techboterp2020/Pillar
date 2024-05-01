@@ -48,3 +48,35 @@ class StockMoveLine(models.Model):
     net_weight = fields.Float(string='Net Weight')
     total_weight = fields.Float(string='Total Weight')
     remarks = fields.Char(string='Remarks')
+    
+    
+class StockMove(models.Model):
+    _inherit = 'stock.move'
+
+    # added these fields only to get values in delivery slip
+    measurement = fields.Char(string='Measurement',compute='_compute_move_line_values')
+    net_weight = fields.Float(string='Net Weight',compute='_compute_move_line_values')
+    total_weight = fields.Float(string='Total Weight',compute='_compute_move_line_values')
+    remarks = fields.Char(string='Remarks',compute='_compute_move_line_values')  
+    
+    
+    def _compute_move_line_values(self):
+        for record in self:
+            measurement = False
+            net_weight = False
+            total_weight = False
+            remarks = False
+            move_line_id = self.env['stock.move.line'].search([('move_id','=',record.id)],limit=1)
+            if move_line_id:
+                measurement = move_line_id.measurement
+                net_weight = move_line_id.net_weight
+                total_weight = move_line_id.total_weight
+                remarks = move_line_id.remarks
+            record.measurement = measurement
+            record.net_weight = net_weight
+            record.total_weight = total_weight
+            record.remarks = remarks    
+                
+                
+                
+ 
