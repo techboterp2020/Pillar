@@ -40,24 +40,26 @@ class AccountMove(models.Model):
         for i in sale_obj:
             sale = i
             break 
-
+            
         if sale_obj:
             stock = self.env['stock.picking'].search([('origin','=',sale.name)],limit=1)
 
             if stock:
                 for rec in self:
                     temp_ry= "done"
-                    rec.method_of_dispatch = stock.method_of_dispatch
-                    rec.type_of_shipment = stock.type_of_shipment
-                    rec.delivery_term = stock.delivery_term
-                    rec.country_final_destination = stock.country_final_destination
-                    rec.transport_type = stock.transport_type
-                    rec.voyage_no = stock.voyage_no
-                    rec.terms_method_payment = stock.packing_information
-                    rec.port_of_loading = stock.port_of_loading
-                    rec.departure_date = stock.departure_date
-                    rec.port_of_discharge = stock.port_of_discharge
-                    rec.final_destination = stock.final_destination
+                    rec.write({
+                    "method_of_dispatch" : stock.method_of_dispatch,
+                    "type_of_shipment" : stock.type_of_shipment,
+                    "delivery_term" : stock.delivery_term,
+                    "country_final_destination" : stock.country_final_destination,
+                    "transport_type" : stock.transport_type,
+                    "voyage_no" : stock.voyage_no,
+                    "terms_method_payment" : stock.packing_information,
+                    "port_of_loading" : stock.port_of_loading,
+                    "departure_date" : stock.departure_date,
+                    "port_of_discharge" : stock.port_of_discharge,
+                    "final_destination" : stock.final_destination,
+                    })
         temp_ry = "temp_ry"            
 
     @api.depends('partner_id')
