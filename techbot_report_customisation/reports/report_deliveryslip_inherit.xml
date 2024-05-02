@@ -335,6 +335,7 @@
                                     </td>
                                     <td>
                                         <span t-field="line.total_weight"/>
+                                        <t t-set="total_gross_weight" t-value="line.total_weight"/>
                                     </td>
                                     <td>
                                         <span t-field="line.remarks"/>
@@ -349,10 +350,10 @@
                                     <span t-esc="o.total_measurement"/>
                                 </td>
                                 <td>
-                                    <span t-esc="total_net_weight"/>
+                                    <!-- <span t-esc="total_net_weight"/> -->
                                 </td>
                                 <td colspan="2">
-
+                                    <span t-esc="total_gross_weight"/>    
                                 </td>
                             </tr>
                             
