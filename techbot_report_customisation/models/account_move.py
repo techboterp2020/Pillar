@@ -32,6 +32,28 @@ class AccountMove(models.Model):
     final_destination = fields.Char(string='Final Destination')
     marine_cover = fields.Char(string='Marine Cover Policy No.')
     letter_of_credit = fields.Char(string='Letter of Credit No.')
+    temp_ry= fields.Char(string="temp",compute="get_fields_data")
+
+
+    def get_fields_data(self):
+        sale_obj = self.env['sale.order'].search([('invoice_ids','=',self.id)],limit=1)
+        if sale_obj:
+            stock = self.env['stock.picking'].search([('origin','=',sale_obj.name)],limit=1)
+            if stock:
+                for rec in self:
+                    temp_ry= "done"
+                    rec.method_of_dispatch = stock.method_of_dispatch
+                    rec.type_of_shipment = stock.type_of_shipment
+                    rec.delivery_term = stock.delivery_term
+                    rec.country_final_destination = stock.country_final_destination
+                    rec.transport_type = stock.transport_type
+                    rec.voyage_no = stock.voyage_no
+                    rec.terms_method_payment = stock.packing_information
+                    rec.port_of_loading = stock.port_of_loading
+                    rec.departure_date = stock.departure_date
+                    rec.port_of_discharge = stock.port_of_discharge
+                    rec.final_destination = stock.final_destination
+        temp_ry = "temp_ry"            
 
     @api.depends('partner_id')
     def _compute_custom_invoice_note(self):
