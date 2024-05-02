@@ -4,7 +4,7 @@ from odoo import models, fields, api
 from num2words import num2words
 
 from odoo.tools import is_html_empty
-
+from odoo.exceptions import UserError
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
@@ -40,11 +40,11 @@ class AccountMove(models.Model):
         for i in sale_obj:
             sale = i
             break 
+
         if sale_obj:
-            stocks = self.env['stock.picking'].search([('origin','=',sale_obj.name)],limit=1)
-            for j in stocks:
-                stock = j 
-            if stocks:
+            stock = self.env['stock.picking'].search([('origin','=',sale.name)],limit=1)
+
+            if stock:
                 for rec in self:
                     temp_ry= "done"
                     rec.method_of_dispatch = stock.method_of_dispatch
