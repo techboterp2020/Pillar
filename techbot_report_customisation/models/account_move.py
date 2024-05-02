@@ -37,9 +37,14 @@ class AccountMove(models.Model):
 
     def get_fields_data(self):
         sale_obj = self.env['sale.order'].search([('invoice_ids','=',self.id)],limit=1)
+        for i in sale_obj:
+            sale = i
+            break 
         if sale_obj:
-            stock = self.env['stock.picking'].search([('origin','=',sale_obj.name)],limit=1)
-            if stock:
+            stocks = self.env['stock.picking'].search([('origin','=',sale_obj.name)],limit=1)
+            for j in stocks:
+                stock = j 
+            if stocks:
                 for rec in self:
                     temp_ry= "done"
                     rec.method_of_dispatch = stock.method_of_dispatch
