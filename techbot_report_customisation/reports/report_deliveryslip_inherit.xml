@@ -427,6 +427,7 @@
                                 <thead>
                                     <th>SR#</th>
                                     <th>MODEL</th>
+                                    <th>MODEL YEAR</th>
                                     <th>CHASSIS</th>
                                     <th>ENGINE</th>
                                     <th>COLOR</th>
@@ -441,6 +442,9 @@
                                             <td style="text-align:center;">
                                                 <span t-esc="line.product_id.name"/>
                                             </td>
+                                            <td>
+                                                <span style="text-align:center;" t-esc="line.model_year_related"/>
+                                            </td>  
                                             <td>
                                                 <span t-esc="line.chassis_no_related"/>
                                             </td>
