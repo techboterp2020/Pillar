@@ -32,36 +32,10 @@ class AccountMove(models.Model):
     final_destination = fields.Char(string='Final Destination')
     marine_cover = fields.Char(string='Marine Cover Policy No.')
     letter_of_credit = fields.Char(string='Letter of Credit No.')
-    temp_ry= fields.Char(string="temp",compute="get_fields_data")
+    temp_ry= fields.Char(string="temp")
 
 
-    def get_fields_data(self):
-        sale_obj = self.env['sale.order'].search([('invoice_ids','=',self.id)],limit=1)
-        for i in sale_obj:
-            sale = i
-            break 
-            
-        if sale_obj:
-            stock = self.env['stock.picking'].search([('origin','=',sale.name)],limit=1)
-
-            if stock:
-                for rec in self:
-                    temp_ry= "done"
-                    rec.write({
-                    "method_of_dispatch" : stock.method_of_dispatch,
-                    "type_of_shipment" : stock.type_of_shipment,
-                    "delivery_term" : stock.delivery_term,
-                    "country_final_destination" : stock.country_final_destination,
-                    "transport_type" : stock.transport_type,
-                    "voyage_no" : stock.voyage_no,
-                    "terms_method_payment" : stock.packing_information,
-                    "port_of_loading" : stock.port_of_loading,
-                    "departure_date" : stock.departure_date,
-                    "port_of_discharge" : stock.port_of_discharge,
-                    "final_destination" : stock.final_destination,
-                    })
-        temp_ry = "temp_ry"            
-
+    
     @api.depends('partner_id')
     def _compute_custom_invoice_note(self):
         for order in self:
@@ -112,3 +86,31 @@ class AccountMove(models.Model):
             for line in line_ids:
                 total_weight += line.product_id.weight * line.quantity
             rec.total_product_weight = total_weight
+
+class SaleORder(models.Model):
+    _inherit = 'sale.order'
+
+    def _create_invoices(self, grouped=False, final=False, date=None):
+
+        moves = super(SaleORder, self)._create_invoices(grouped=grouped, final=final, date=date)
+
+
+        stock = self.env['stock.picking'].search([('sale_id', '=', self.name)], limit=1)
+
+        if stock:
+            for rec in moves:
+                rec.write({
+                    "method_of_dispatch": stock.method_of_dispatch,
+                    "type_of_shipment": stock.type_of_shipment,
+                    "delivery_term": stock.delivery_term,
+                    "country_final_destination": stock.country_final_destination,
+                    "transport_type": stock.transport_type,
+                    "voyage_no": stock.voyage_no,
+                    "terms_method_payment": stock.packing_information,
+                    "port_of_loading": stock.port_of_loading,
+                    "departure_date": stock.departure_date,
+                    "port_of_discharge": stock.port_of_discharge,
+                    "final_destination": stock.final_destination,
+                })
+
+        return moves
