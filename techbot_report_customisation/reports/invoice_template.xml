@@ -262,7 +262,8 @@
                                         <span t-esc="'{:.2f}'.format(line.price_unit)"/>
                                     </td>
                                     <td style="text-align:center;">
-                                         <span t-esc="'{:.2f}'.format(line.price_subtotal)"/>
+                                        <span t-esc="'{:.2f}'.format(round(line.price_unit * line.quantity, 2))"/>
+                                         <!-- <span t-esc="'{:.2f}'.format(line.price_subtotal)"/> -->
                                     </td>
                                     <t t-set="counter" t-value="counter + 1"/>
                                 </tr>
