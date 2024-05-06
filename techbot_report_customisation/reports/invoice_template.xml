@@ -259,11 +259,12 @@
                                         <span t-esc="line.product_uom_id.name"/>
                                     </td>
                                     <td style="text-align:center;">
-                                        <span t-esc="'{:.2f}'.format(line.price_unit)"/>
+                                        <span t-esc="'{:,}'.format(line.price_unit)"/>
+                                        <!-- <span t-esc="'{:.2f}'.format(line.price_unit)"/> -->
                                     </td>
                                     <td style="text-align:center;">
-                                        <span t-esc="'{:.2f}'.format(round(line.price_unit * line.quantity, 2))"/>
-                                         <!-- <span t-esc="'{:.2f}'.format(line.price_subtotal)"/> -->
+                                        <span t-esc="'{:,}'.format(line.price_unit * line.quantity)"/>
+                                        <!-- <span t-esc="'{:.2f}'.format(line.price_subtotal)"/> -->
                                     </td>
                                     <t t-set="counter" t-value="counter + 1"/>
                                 </tr>
