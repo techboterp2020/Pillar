@@ -331,11 +331,11 @@
                                     </td>
                                     <td>
                                         <span t-field="line.net_weight"/>
-                                        <t t-set="total_net_weight" t-value="line.quantity_done * line.net_weight"/>
+                                        <t t-set="total_net_weight" t-value="line.net_weight"/>
                                     </td>
                                     <td>
                                         <span t-field="line.total_weight"/>
-                                        <t t-set="total_gross_weight" t-value="line.quantity_done * line.total_weight"/>
+                                        <t t-set="total_gross_weight" t-value="line.total_weight"/>
                                     </td>
                                     <td>
                                         <span t-field="line.remarks"/>
