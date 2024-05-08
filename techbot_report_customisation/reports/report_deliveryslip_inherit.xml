@@ -304,6 +304,7 @@
                         <tbody>
                             <t t-set="total_measurement" t-value="0"/>
                             <t t-set="total_net_weight" t-value="0"/>
+                            <t t-set="total_gross_weight" t-value="0"/>
                             <!-- <t t-foreach="o.move_line_ids " t-as="line"> -->
                             <t t-foreach="o.move_ids " t-as="line">
                                 <tr>
@@ -331,11 +332,12 @@
                                     </td>
                                     <td>
                                         <span t-field="line.net_weight"/>
-                                        <t t-set="total_net_weight" t-value="line.net_weight"/>
+                                        <t t-set="total_net_weight" t-value="total_net_weight + line.net_weight"/>
                                     </td>
                                     <td>
                                         <span t-field="line.total_weight"/>
-                                        <t t-set="total_gross_weight" t-value="line.total_weight"/>
+                                        
+                                        <t t-set="total_gross_weight" t-value="total_gross_weight + line.total_weight"/>
                                     </td>
                                     <td>
                                         <span t-field="line.remarks"/>
