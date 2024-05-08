@@ -3,7 +3,7 @@ from odoo import api, fields, models
 
 class StockMove(models.Model):
     _inherit = 'stock.move'
-    make_related = fields.Char(string='Origin', related='lot_id.make')
+    make_related = fields.Char(string='Origin')
     
 
 
