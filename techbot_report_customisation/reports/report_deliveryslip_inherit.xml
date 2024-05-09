@@ -321,7 +321,14 @@
                                         <span t-field="line.product_id.hs_code"/>
                                     </td>
                                     <td>
-                                        <span t-field="line.product_id.country_of_origin"/>
+                                        <t t-foreach="o.move_line_ids" t-as="record" t-if="record.product_id.id == line.product_id.id and record.make_related != '()'">
+                                               
+                                            <t t-set="cntry" t-value="record.make_related"/>
+                                        </t>
+                                       
+                                            <span t-esc="cntry"/>  
+                                        
+                                        
                                     </td>
                                     <td>
                                         <span t-field="line.quantity_done"/>
