@@ -338,13 +338,23 @@
                                         <!-- <t t-set="total_measurement" t-value="total_measurement + line.measurements"/> -->
                                     </td>
                                     <td>
-                                        <span t-field="line.net_weight"/>
-                                        <t t-set="total_net_weight" t-value="total_net_weight + line.net_weight"/>
+                                        <t t-foreach="o.move_line_ids" t-as="record" t-if="record.product_id.id == line.product_id.id">
+                                               
+                                            <t t-set="total_net" t-value="total_net + record.net_weight"  />
+                                        </t>
+                                        <span t-esc="total_net"/> 
+                                        <!-- <span t-field="line.net_weight"/>
+                                        <t t-set="total_net_weight" t-value="total_net_weight + line.net_weight"/> -->
                                     </td>
                                     <td>
-                                        <span t-field="line.total_weight"/>
+                                        <t t-foreach="o.move_line_ids" t-as="record"  t-if="record.product_id.id == line.product_id.id">
+                                               
+                                            <t t-set="total_weights" t-value="total_weights + record.total_weight" />
+                                        </t>
+                                        <span t-esc="total_weights"/> 
+                                        <!-- <span t-field="line.total_weight"/> -->
                                         
-                                        <t t-set="total_gross_weight" t-value="total_gross_weight + line.total_weight"/>
+                                        <!-- <t t-set="total_gross_weight" t-value="total_gross_weight + line.total_weight"/> -->
                                     </td>
                                     <td>
                                         <span t-field="line.remarks"/>
@@ -359,10 +369,21 @@
                                     <span t-esc="o.total_measurement"/>
                                 </td>
                                 <td>
-                                    <span t-esc="total_net_weight"/>
+                                    <t t-foreach="o.move_line_ids" t-as="record">
+                                               
+                                        <t t-set="total_net_weight" t-value="total_net_weight + record.net_weight"/>
+                              </t>
+                              
+                                 <span t-esc="total_net_weight"/> 
+                                    <!-- <span t-esc="total_net_weight"/> -->
                                 </td>
                                 <td colspan="2">
-                                    <span t-esc="total_gross_weight"/>    
+                                    <t t-foreach="o.move_line_ids" t-as="record">
+                                               
+                                        <t t-set="total_gross_weight" t-value="total_gross_weight + record.total_weight"/>
+                              </t>
+                                <span t-esc="total_gross_weight"/>   
+                                    <!-- <span t-esc="total_gross_weight"/>     -->
                                 </td>
                             </tr>
                             
