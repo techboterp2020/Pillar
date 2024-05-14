@@ -250,7 +250,8 @@
                                         <span t-esc="line.product_id.hs_code"/>
                                     </td>
                                     <td style="text-align:center;">
-                                        <span t-esc="o.get_country_origin(line)"/>
+                                        <!-- <span t-esc="o.get_country_origin(line)"/> -->
+                                        <span t-esc="line.product_id.country_of_origin.name"/>
                                     </td>
                                     <td style="text-align:center;">
                                         <span t-esc="int(line.quantity)"/>
@@ -278,12 +279,20 @@
                                 </td>
                                 <t t-set="discount_total" t-value="0"/>
                                 <t t-foreach="o.invoice_line_ids" t-as="line">
+                                    
+                                    <t t-set="discount_total" t-value="discount_total + (line.discount) * (line.price_unit * line.quantity)"/>
+                                </t>
+                                <td style="text-align:center;">
+                                    <span style="font-weight:bold" t-esc="'{:,}'.format(discount_total / 100)"/>
+                                </td>
+                                <!-- <t t-set="discount_total" t-value="0"/>
+                                <t t-foreach="o.invoice_line_ids" t-as="line">
                                     <t t-set="discount_total" t-value="discount_total + line.discount"/>
                                 </t>
                                 <td style="text-align:center;">
                                     <span style="font-weight:bold"
                                             t-esc="'{:,}'.format(discount_total)"/>%
-                                </td>
+                                </td> -->
                             </tr>
                             <tr>
                                 <td colspan="7"></td>
