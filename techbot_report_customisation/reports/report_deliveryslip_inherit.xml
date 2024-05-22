@@ -305,6 +305,8 @@
                             <t t-set="total_measurement" t-value="0"/>
                             <t t-set="total_net_weight" t-value="0"/>
                             <t t-set="total_gross_weight" t-value="0"/>
+                            <t t-set="total_net" t-value="0"/>
+                            <t t-set="total_weights" t-value="0"/>   
                             <!-- <t t-foreach="o.move_line_ids " t-as="line"> -->
                             <t t-foreach="o.move_ids " t-as="line">
                                 <tr>
