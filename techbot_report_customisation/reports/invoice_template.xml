@@ -29,11 +29,9 @@
     <template id="custom_invoice_report">
         <t t-call="web.basic_layout">
             <!-- <div class="oe_structure"/> -->
-            <div class="page"
-                 t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});
-                 padding:10px;background-size: cover;background-repeat: no-repeat;
-                     width: 100%;min-height:1753px;">
-                <t t-call="techbot_report_customisation.company_header_invoice"/>
+            <div class="page" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});     padding:10px;background-size: cover;background-repeat: no-repeat;                      width: 100%;min-height:1753px;position: relative;">
+           
+            <t t-call="techbot_report_customisation.company_header_invoice"/>
                 <div class="row">
                     <div class="col-8">
                         <span style="font-weight:bold;">Exporter/Seller:</span><br/>
@@ -342,7 +340,7 @@
                 </div>
                 <br/>
                 <div class="row">
-                    <div style="padding-bottom:40px;">
+                    <div >
                         <span style="text-decoration:underline;">
                             <b>Bank Details-</b>
                         </span>
@@ -364,8 +362,8 @@
 
                     </div>
                 </div>
-                <br/>
-                <t t-if="o.vehicle_related">
+                <!-- <br/> -->
+                <!-- <t t-if="o.vehicle_related">
                     <div class="row">
                         <span style="text-decoration:underline;">
                             Vehicle Details-
@@ -410,18 +408,82 @@
                         </table>
                     </div>
                     <br/><br/><br/><br/>
-                </t>
+                </t> -->
                 <!-- <div class="row">
                     <span style="font-weight:bold;white-space:nowrap;">
                         FOR SELLER (Signature &amp; Stamp):
                     </span>
                 </div>
                 <br/><br/><br/><br/><br/> -->
-                <div class="row">
+                <!-- <div class="row">
                     <span t-esc="o.custom_invoice_note"/>
-                </div>
+                </div> -->
 <!--                <t t-call="techbot_report_customisation.company_footer_invoice"/>-->
             </div>
+           
+           
+           
+            <p style="page-break-before:always;"> </p>
+           
+            <div class="row">
+                 <div class="page" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});     padding:10px;background-size: cover;background-repeat: no-repeat;                      width: 100%;min-height:1753px;position: relative;">
+                <div style="margin-top:300px;">
+                <t t-if="o.vehicle_related">
+                    <div class="row">
+                        <span style="text-decoration:underline;">
+                            Vehicle Details-
+                        </span>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered" style="border:1px solid black;">
+                            <thead>
+                                <th>SR#</th>
+                                <th>MODEL</th>
+                                <th>YEAR OF PRODUCTION</th>
+                                <th>CHASSIS</th>
+                                <th>ENGINE</th>
+                                <th>COLOR</th>
+                            </thead>
+                            <tbody>
+                                <t t-set="counter" t-value="1"/>
+                                <t t-foreach="o.get_lot_ids()" t-as="line">
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <span t-esc="counter"/>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <span t-esc="line.product_id.name"/>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <span t-esc="line.model_year_related"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.chassis_no_related"/>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <span t-esc="line.engine_no_related"/>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <span t-esc="line.color_external_related"/>
+                                        </td>
+                                        <t t-set="counter" t-value="counter + 1"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                </t>
+                
+                
+                
+                
+                <span t-esc="o.custom_invoice_note"/>
+                </div>
+                </div>
+                  
+                    
+                </div>
         </t>
     </template>
 
