@@ -411,21 +411,22 @@
 
         </div>
           
-          <div t-attf-class="footer o_standard_footer">
-            
+        <div t-attf-class="footer o_standard_footer">
+              
             <div class="text-right" style="border-top: 1px solid black;">
             </div>
-                <div class="row" style="margin-left: 30%;  margin-top:5px;">
+                <div class="row" style="margin-top:5px;">
+                  <div class="col-1"/>
                   
                   <div class="col-4">
                     <i class="fa fa-map-marker" aria-hidden="true"/>
                     <span style="font-weight: bold;" t-esc="o.company_id.name"/>
                   </div>
-                  <div class="col-4">
+                  <div class="col-3">
                     <i class="fa fa-envelope" aria-hidden="true"/>
                     <span style="font-weight: bold;" t-esc="o.company_id.email"/>
                   </div>
-                  <div class="col-4">
+                  <div class="col-3">
                     <i class="fa fa-phone" aria-hidden="true"/>
                     <span style="font-weight: bold;" t-esc="o.company_id.mobile"/>
                   </div>
@@ -433,25 +434,29 @@
                  </div>  
                  
                 <br/>
-              <div class="row" style="margin-left: 30%;">
-                 
+              <div class="row">
+                  <div class="col-1"/>
                   <div class="col-4">
                     <i class="fa fa-dropbox" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.name"/>
+                    
+                    <span style="font-weight: bold;">114456</span>
                   </div>
-                  <div class="col-4">
+                  <div class="col-3">
                     <i class="fa fa-globe" aria-hidden="true"/>
                     <span style="font-weight: bold;" t-esc="o.company_id.website"/>
                   </div>
-                  <div class="col-4">
+                  <div class="col-3">
                     <i class="fa fa-phone" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.mobile"/>
+                    <span style="font-weight: bold;" t-esc="o.company_id.phone"/>
                   </div>
                  
                  </div>  
               
               </div>
               
+              
+              
+         
               
               
         
