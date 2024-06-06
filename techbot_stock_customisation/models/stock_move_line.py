@@ -75,7 +75,10 @@ class StockMoveLine(models.Model):
                         'bill_of_entry': line.bill_of_entry,
                         'bill_of_lading': line.bill_of_lading
                     })
-        raise UserWarning("DOne Everything")
-        return res
+        try:
+            return res
+        except Exception as e:
+            raise UserWarning(str(e))
+
 
 
