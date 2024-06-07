@@ -48,6 +48,19 @@ class StockMoveLine(models.Model):
 
     def _action_done(self):
         res = super(StockMoveLine, self)._action_done()
+        for line in self:
+            if line.engine_no and line.engine_no!=line.lot_id.engine_no:
+                line.lot_id.write({
+                    'engine_no': line.engine_no,
+                    'chassis_no': line.chassis_no,
+                    'key_no': line.key_no,
+                    'model_year': line.model_year,
+                    'color_internal': line.color_internal,
+                    'make': line.make,
+                    'color_external': line.color_external,
+                    'bill_of_entry': line.bill_of_entry,
+                    'bill_of_lading': line.bill_of_lading,
+                })
         return res
     #     for line in self:
     #         if line.engine_no and line.engine_no!=line.lot_id.engine_no:
