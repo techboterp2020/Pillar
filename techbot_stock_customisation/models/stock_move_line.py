@@ -30,21 +30,21 @@ class StockMoveLine(models.Model):
     bill_of_entry_related = fields.Char(string="BOE", related='lot_id.bill_of_entry')
     bill_of_lading_related = fields.Char(string="BOL", related='lot_id.bill_of_lading')
 
-    # @api.model
-    # def _get_value_production_lot(self):
-    #     res = super(StockMoveLine, self)._get_value_production_lot()
-    #     res.update({
-    #         'engine_no': self.engine_no,
-    #         'chassis_no': self.chassis_no,
-    #         'key_no': self.key_no,
-    #         'model_year': self.model_year,
-    #         'color_internal': self.color_internal,
-    #         'make': self.make,
-    #         'color_external': self.color_external,
-    #         'bill_of_entry': self.bill_of_entry,
-    #         'bill_of_lading': self.bill_of_lading,
-    #     })
-    #     return res
+    @api.model
+    def _get_value_production_lot(self):
+        res = super(StockMoveLine, self)._get_value_production_lot()
+        res.update({
+            'engine_no': self.engine_no,
+            'chassis_no': self.chassis_no,
+            'key_no': self.key_no,
+            'model_year': self.model_year,
+            'color_internal': self.color_internal,
+            'make': self.make,
+            'color_external': self.color_external,
+            'bill_of_entry': self.bill_of_entry,
+            'bill_of_lading': self.bill_of_lading,
+        })
+        return res
 
     def _action_done(self):
         res = super(StockMoveLine, self)._action_done()
