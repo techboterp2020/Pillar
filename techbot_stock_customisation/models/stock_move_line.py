@@ -46,8 +46,9 @@ class StockMoveLine(models.Model):
         })
         return res
 
-    # def _action_done(self):
-    #     res = super(StockMoveLine, self)._action_done()
+    def _action_done(self):
+        res = super(StockMoveLine, self)._action_done()
+        return res
     #     for line in self:
     #         if line.engine_no and line.engine_no!=line.lot_id.engine_no:
     #             line.lot_id.write({
