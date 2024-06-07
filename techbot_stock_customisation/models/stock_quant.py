@@ -21,21 +21,21 @@ class StockQuant(models.Model):
         return fields + ['engine_no', 'chassis_no', 'key_no', 'model_year', 'color_internal', 'color_external', 'make',
                          'bill_of_entry', 'bill_of_lading']
 
-    # def action_apply_inventory(self):
-    #     res = super(StockQuant, self).action_apply_inventory()
-    #     for rec in self:
-    #         if rec.lot_id:
-    #             rec.lot_id.sudo().write({
-    #                 'engine_no': rec.engine_no,
-    #                 'chassis_no': rec.chassis_no,
-    #                 'key_no': rec.key_no,
-    #                 'model_year': rec.model_year,
-    #                 'color_internal': rec.color_internal,
-    #                 'color_external': rec.color_external,
-    #                 'make': rec.make,
-    #                 'bill_of_entry': rec.bill_of_entry,
-    #                 'bill_of_lading': rec.bill_of_lading,
-    #             })
-    #     return res
+    def action_apply_inventory(self):
+        res = super(StockQuant, self).action_apply_inventory()
+        for rec in self:
+            if rec.lot_id:
+                rec.lot_id.sudo().write({
+                    'engine_no': rec.engine_no,
+                    'chassis_no': rec.chassis_no,
+                    'key_no': rec.key_no,
+                    'model_year': rec.model_year,
+                    'color_internal': rec.color_internal,
+                    'color_external': rec.color_external,
+                    'make': rec.make,
+                    'bill_of_entry': rec.bill_of_entry,
+                    'bill_of_lading': rec.bill_of_lading,
+                })
+        return res
 
 
