@@ -50,7 +50,7 @@ class StockMoveLine(models.Model):
         res = super(StockMoveLine, self)._action_done()
         for line in self:
             if line.engine_no and line.engine_no!=line.lot_id.engine_no:
-                line.lot_id.update({
+                line.lot_id.write({
                     'engine_no': line.engine_no,
                     'chassis_no': line.chassis_no,
                     'key_no': line.key_no,
