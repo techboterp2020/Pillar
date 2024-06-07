@@ -49,6 +49,7 @@ class StockMoveLine(models.Model):
     def _action_done(self):
         res = super(StockMoveLine, self)._action_done()
         for line in self:
+            raise UserWarning(str(self[0]))
             if line.engine_no and line.engine_no!=line.lot_id.engine_no:
                 line.lot_id.write({
                     'engine_no': line.engine_no,
