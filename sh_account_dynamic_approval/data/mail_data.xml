@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="email_template_for_approve_invoice" model="mail.template">
+            <field name="name">Account: Approve Invoice</field>
+            <field name="model_id" ref="sh_account_dynamic_approval.model_account_move" />
+            <field name="subject">Submit for Approval</field>
+            <field name="email_from"></field>
+            <field name="partner_to"></field>
+
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <h2>
+                            <b>Invoice : Submitted for Approval</b>
+                        </h2>
+                        <br />
+                        <br />
+                        <p>
+                            Dear Approver,
+                            <br />
+                            <br />
+                            This is inform you that invoice is submitted for approval.
+                            <br />
+                            <b>User:</b>
+                            <t t-out="object.user_id.name or ''" />
+                            <br />
+                            <b>Total Amount:</b>
+                            <t t-out="format_amount(object.amount_total, object.currency_id) or '' " />
+                            <br />
+                            <b>Approval Level:</b>
+                            <t t-out="object.approval_level_id.name or ''" />
+                            <br />
+                            <b>Minimum Amount:</b>
+                            <t t-out="format_amount(object.approval_level_id.min_amount, object.currency_id) or '' " />
+                            <br />
+                            <br />
+                            Invoice Approval information as below
+                        </p>
+                        <br />
+                        <br />
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Level</th>
+                                    <th scope="col">Approvers</th>
+                                    <th scope="col">Approved Date</th>
+                                    <th scope="col">Approved By</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            
+
+                            <t t-foreach="object.approval_info_line" t-as="line">
+                                <tbody>
+                                    <tr>
+                                        <th><t t-out="line.level or ''" /></th>
+                                        <td>
+                                            <t t-if="line.user_ids">
+                                                <t t-foreach="line.user_ids" t-as="user">
+                                                    <i><t t-out="user.name or ''" />,</i>
+                                                </t>
+                                            </t>
+                                            <t t-else = "">
+                                                <t t-foreach = "line.group_ids" t-as = "group">
+                                                    <i><t t-out="group.name or ''" />,</i>
+                                                </t>
+                                            </t>
+                                        </td>
+                                        <td><t t-out="line.approval_date or ''" /></td>
+                                        <td><t t-out="line.approved_by.name or ''" /></td>
+                                        <td><t t-out="line.status or ''" /></td>
+                                    </tr>
+                                </tbody>
+                            </t>
+                        </table>
+                        <br />
+                        <br />
+                        if you are authorize approver as per approval level.
+                        <br />
+                        You can use the following link and approve the invoice
+                        <br />
+                        <br />
+
+                        <div style="display: inline-block; margin: 15px; text-align: center">
+                            <a t-att-href="'/mail/view?model=account.move&amp;res_id=%s'%object.id" target="_blank" style="padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px">Invoice Reference</a>
+                        </div>
+                        <br />
+                        Thanks,
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_for_approve_bill" model="mail.template">
+            <field name="name">Account: Approve Bill</field>
+            <field name="model_id" ref="sh_account_dynamic_approval.model_account_move" />
+            <field name="subject">Submit for Approval</field>
+            <field name="email_from"></field>
+            <field name="partner_to"></field>
+
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <h2>
+                            <b>Bill : Submitted for Approval</b>
+                        </h2>
+                        <br />
+                        <br />
+                        <p>
+                            Dear Approver,
+                            <br />
+                            <br />
+                            This is inform you that Bill is submitted for approval.
+                            <br />
+                            <b>User:</b>
+                            <t t-out="object.user_id.name or ''" />
+                            
+                            <br />
+                            <b>Total Amount:</b>
+                            <t t-out="format_amount(object.amount_total, object.currency_id) or ''" />
+                            
+                            <br />
+                            <b>Approval Level:</b>
+                            <t t-out="object.approval_level_id.name or ''" />
+                            
+                            <br />
+                            <b>Minimum Amount:</b>
+                            <t t-out="format_amount(object.approval_level_id.min_amount, object.currency_id) or ''" />
+                            
+                            <br />
+                            <br />
+                            Bill Approval information as below
+                        </p>
+                        <br />
+                        <br />
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Level</th>
+                                    <th scope="col">Approvers</th>
+                                    <th scope="col">Approved Date</th>
+                                    <th scope="col">Approved By</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            
+                            <t t-foreach="object.approval_info_line" t-as="line">
+                                <tbody>
+                                    <tr>
+                                        <th><t t-out="line.level or ''" /></th>
+                                        <td>
+                                            <t t-if="line.user_ids">
+                                                <t t-foreach="line.user_ids" t-as="user">
+                                                    <i><t t-out="user.name or ''" />,</i>
+                                                </t>
+                                            </t>
+                                            <t t-else = "">
+                                                <t t-foreach = "line.group_ids" t-as = "group">
+                                                    <i><t t-out="group.name or ''" />,</i>
+                                                </t>
+                                            </t>
+                                        </td>
+                                        <td><t t-out="line.approval_date or ''" /></td>
+                                        <td><t t-out="line.approved_by.name or ''" /></td>
+                                        <td><t t-out="line.status or ''" /></td>
+                                    </tr>
+                                </tbody>
+                            </t>
+                        </table>
+                        <br />
+                        <br />
+                        if you are authorize approver as per approval level.
+                        <br />
+                        You can use the following link and approve the Bill
+                        <br />
+                        <br />
+
+                        <div style="display: inline-block; margin: 15px; text-align: center">
+                            <a t-att-href="'/mail/view?model=account.move&amp;res_id=%s'%object.id" target="_blank" style="padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px">Bill Reference</a>
+                        </div>
+                        <br />
+                        Thanks,
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_reject_invoice" model="mail.template">
+            <field name="name">Account: Reject Invoice</field>
+            <field name="model_id" ref="sh_account_dynamic_approval.model_account_move" />
+            <field name="subject">Reject Invoice</field>
+            <field name="email_from"></field>
+            <field name="partner_to"></field>
+
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <h2>
+                            <b>Invoice Rejected</b>
+                        </h2>
+                        <br />
+                        <br />
+                        Dear User,
+                        <br />
+                        <br />
+                        Rejected Invoice Information.
+                        <br />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Reject By</th>
+                                    <th scope="col">Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td><t t-out="object.rejection_date or ''" /></td>
+                                <td><t t-out="object.reject_by.name or ''" /></td>
+                                <td><t t-out="object.reject_reason or ''" /></td>
+                            </tbody>
+                        </table>
+                        <br />
+                        <br />
+                        You can use the following link to access the Invoice.
+                        <br />
+                        <br />
+                        <div style="display: inline-block; margin: 15px; text-align: center">
+                            <a t-att-href="'/mail/view?model=account.move&amp;res_id=%s'%object.id" target="_blank" style="padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px">Invoice Reference</a>
+                        </div>
+                        <br />
+                        Thanks,
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_reject_bill" model="mail.template">
+            <field name="name">Account: Reject Bill</field>
+            <field name="model_id" ref="sh_account_dynamic_approval.model_account_move" />
+            <field name="subject">Reject Bill</field>
+            <field name="email_from"></field>
+            <field name="partner_to"></field>
+
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <h2>
+                            <b>Bill Rejected</b>
+                        </h2>
+                        <br />
+                        <br />
+                        Dear User,
+                        <br />
+                        <br />
+                        Rejected Bill Information.
+                        <br />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Reject By</th>
+                                    <th scope="col">Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td><t t-out="object.rejection_date or ''" /></td>
+                                <td><t t-out="object.reject_by.name or ''" /></td>
+                                <td><t t-out="object.reject_reason or ''" /></td>
+                            </tbody>
+                        </table>
+                        <br />
+                        <br />
+                        You can use the following link to access the Bill.
+                        <br />
+                        <br />
+                        <div style="display: inline-block; margin: 15px; text-align: center">
+                            <a t-att-href="'/mail/view?model=account.move&amp;res_id=%s'%object.id" target="_blank" style="padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px">Bill Reference</a>
+                        </div>
+                        <br />
+                        Thanks,
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_posted_invoice" model="mail.template">
+            <field name="name">Account: Posted Invoice</field>
+            <field name="model_id" ref="sh_account_dynamic_approval.model_account_move" />
+            <field name="subject">Posted Invoice</field>
+            <field name="email_from"></field>
+            <field name="partner_to"></field>
+
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <h2>
+                            <b>Invoice Posted</b>
+                        </h2>
+                        <br />
+                        <br />
+                        Dear User,
+                        <br />
+                        <br />
+                        This is inform you that your Invoice is Posted.
+                        <br />
+                        You can use the following link to access the invoice.
+                        <br />
+                        <br />
+                        <div style="display: inline-block; margin: 15px; text-align: center">
+                            <a t-att-href="'/mail/view?model=account.move&amp;res_id=%s'%object.id" target="_blank" style="padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px">Invoice Reference</a>
+                        </div>
+                        <br />
+                        Thanks,
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_posted_bill" model="mail.template">
+            <field name="name">Account: Posted Bill</field>
+            <field name="model_id" ref="sh_account_dynamic_approval.model_account_move" />
+            <field name="subject">Posted Bill</field>
+            <field name="email_from"></field>
+            <field name="partner_to"></field>
+
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <h2>
+                            <b>Bill Posted</b>
+                        </h2>
+                        <br />
+                        <br />
+                        Dear User,
+                        <br />
+                        <br />
+                        This is inform you that your Bill is Posted.
+                        <br />
+                        You can use the following link to access the Bill.
+                        <br />
+                        <br />
+                        <div style="display: inline-block; margin: 15px; text-align: center">
+                            <a t-att-href="'/mail/view?model=account.move&amp;res_id=%s'%object.id" target="_blank" style="padding: 5px 10px; color: #FFFFFF; text-decoration: none; background-color: #875A7B; border: 1px solid #875A7B; border-radius: 3px">Bill Reference</a>
+                        </div>
+                        <br />
+                        Thanks,
+                    </p>
+                </div>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
