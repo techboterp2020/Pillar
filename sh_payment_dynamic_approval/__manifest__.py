@@ -10,7 +10,7 @@
     "summary": "Dynamic Payment Approval Dynamic Payments Approval Payment Multi Approval Payment Multiple Approval Payments Multi Approval Payments Multiple Approval Double Approval Payment Double Approval Payment Dynamic Approvals User Wise Approval Group Wise Approval Reject Payment Approve Payment Validation Invoice Appprove Payment Approve Bill Appprove Credit Note Appprove Debit Note Appprove Refund Appprove Invoice Approval Bill Approval Odoo",
     "description": """This module allows you to set dynamic and multi-level approvals in payments can be approved by many levels. Payment can be approved by particular users or groups they get emails notification about payment that waiting for approval. When a payment approves or rejects user gets a notification about it.""",
     "version": "16.0.3",
-    "depends": ["account", "bus","sh_base_dynamic_approval","fx_account_payment","bi_cs_multiple_payment"],
+    "depends": ["account", "bus","sh_base_dynamic_approval","bi_cs_multiple_payment"],
     "data": [
         'security/ir.model.access.csv',
         'data/mail_data.xml',
