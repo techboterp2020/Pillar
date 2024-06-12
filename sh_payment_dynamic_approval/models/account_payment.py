@@ -6,6 +6,8 @@ from odoo.exceptions import UserError
 
 class AccountPayment(models.Model):
     _inherit = 'account.payment'
+
+    date_payment_due = fields.Date(string='Payment Due Date')
     sh_to_reconcile = fields.Many2many('account.move.line',string="Line to reconcile")
     approval_config_id = fields.Many2one(
         'sh.payment.approval.config', string="Payment Approval Level", compute="_compute_approval_level")
