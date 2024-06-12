@@ -7,5 +7,5 @@ from . import sh_payment_approval_config_line
 from . import account_payment
 from . import account_move
 from . import account_payment_register
-from . import action_invoice_payment
+# from . import action_invoice_payment
 
