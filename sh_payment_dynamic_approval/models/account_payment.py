@@ -64,7 +64,7 @@ class AccountPayment(models.Model):
         # if self.date_payment_due and self.date_payment_due > datetime.today().date():
         #     raise UserError("La fecha de vencimiento es mayor a la fecha actual")
         # if self.payment_type == 'outbound' and self.journal_id.payment_method_line_id == self.payment_method_line_id.payment_method_id and self.date_payment_due:
-        if self.payment_type == 'outbound' and self.journal_id.payment_method_line_id == self.payment_method_line_id.payment_method_id:
+        if self.payment_type == 'outbound':
             self.exchange_rate = self.currency_id._get_conversion_rate(self.currency_id, self.env.company.currency_id, self.env.company)  
             # self.exchange_rate = self.currency_id._get_conversion_rate(self.currency_id, self.env.company.currency_id, self.env.company, self.date_payment_due)  
             # self.date = self.date_payment_due 
