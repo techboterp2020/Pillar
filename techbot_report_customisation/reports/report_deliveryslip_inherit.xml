@@ -17,18 +17,21 @@
     </template>
 
     <template id="report_delivery_document_inherit" inherit_id="stock.report_delivery_document">
+        
         <xpath expr="//t[@t-call='web.external_layout']" position="replace">
-            <t t-call="web.basic_layout">
-                <div class="oe_structure"/>
-                <div class="page"
+            <t t-call="web.external_layout_standard">
+                <t t-set="company" t-value="o.company_id"/>
+                <!-- <div class="oe_structure"/> -->
+                <!-- <div class="page"
                      t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});
                      padding:10px;background-size: cover;background-repeat: no-repeat;
-                         width: 100%;min-height:1753px;">
+                         width: 100%;min-height:1753px;"> -->
+                    <div class="page">     
                     <t t-call="techbot_report_customisation.company_header_delivery"/>
 
                     <t t-set="o" t-value="o.with_context(lang=o._get_report_lang())" />
                     <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
-
+                    <h6 style="text-align: center; font-weight:bold;">PACKING LIST</h6>        
                     <div class="row">
                         <div class="col-8">
                             <!-- <t t-if="o.should_print_delivery_address()">
@@ -304,6 +307,9 @@
                         <tbody>
                             <t t-set="total_measurement" t-value="0"/>
                             <t t-set="total_net_weight" t-value="0"/>
+                            <t t-set="total_gross_weight" t-value="0"/>
+                            <t t-set="total_net" t-value="0"/>
+                            <t t-set="total_weights" t-value="0"/>   
                             <!-- <t t-foreach="o.move_line_ids " t-as="line"> -->
                             <t t-foreach="o.move_ids " t-as="line">
                                 <tr>
@@ -320,7 +326,15 @@
                                         <span t-field="line.product_id.hs_code"/>
                                     </td>
                                     <td>
-                                        <span t-field="line.product_id.country_of_origin"/>
+                                        <span t-field="line.product_id.country_of_origin.name"/>
+                                        <!-- <t t-foreach="o.move_line_ids" t-as="record" t-if="record.product_id.id == line.product_id.id and record.make_related != '()'">
+                                               
+                                            <t t-set="cntry" t-value="record.make_related"/>
+                                        </t>
+                                       
+                                            <span t-esc="cntry"/>   -->
+                                        
+                                        
                                     </td>
                                     <td>
                                         <span t-field="line.quantity_done"/>
@@ -330,12 +344,23 @@
                                         <!-- <t t-set="total_measurement" t-value="total_measurement + line.measurements"/> -->
                                     </td>
                                     <td>
-                                        <span t-field="line.net_weight"/>
-                                        <t t-set="total_net_weight" t-value="line.net_weight"/>
+                                        <t t-foreach="o.move_line_ids" t-as="record" t-if="record.product_id.id == line.product_id.id">
+                                               
+                                            <t t-set="total_net" t-value="total_net + record.net_weight"  />
+                                        </t>
+                                        <span t-esc="total_net"/> 
+                                        <!-- <span t-field="line.net_weight"/>
+                                        <t t-set="total_net_weight" t-value="total_net_weight + line.net_weight"/> -->
                                     </td>
                                     <td>
-                                        <span t-field="line.total_weight"/>
-                                        <t t-set="total_gross_weight" t-value="line.total_weight"/>
+                                        <t t-foreach="o.move_line_ids" t-as="record"  t-if="record.product_id.id == line.product_id.id">
+                                               
+                                            <t t-set="total_weights" t-value="total_weights + record.total_weight" />
+                                        </t>
+                                        <span t-esc="total_weights"/> 
+                                        <!-- <span t-field="line.total_weight"/> -->
+                                        
+                                        <!-- <t t-set="total_gross_weight" t-value="total_gross_weight + line.total_weight"/> -->
                                     </td>
                                     <td>
                                         <span t-field="line.remarks"/>
@@ -350,10 +375,21 @@
                                     <span t-esc="o.total_measurement"/>
                                 </td>
                                 <td>
-                                    <span t-esc="total_net_weight"/>
+                                    <t t-foreach="o.move_line_ids" t-as="record">
+                                               
+                                        <t t-set="total_net_weight" t-value="total_net_weight + record.net_weight"/>
+                              </t>
+                              
+                                 <span t-esc="total_net_weight"/> 
+                                    <!-- <span t-esc="total_net_weight"/> -->
                                 </td>
                                 <td colspan="2">
-                                    <span t-esc="total_gross_weight"/>    
+                                    <t t-foreach="o.move_line_ids" t-as="record">
+                                               
+                                        <t t-set="total_gross_weight" t-value="total_gross_weight + record.total_weight"/>
+                              </t>
+                                <span t-esc="total_gross_weight"/>   
+                                    <!-- <span t-esc="total_gross_weight"/>     -->
                                 </td>
                             </tr>
                             
@@ -523,6 +559,49 @@
                         </div>
                     </div> -->
                 </div>
+                    
+            <div t-attf-class="footer o_standard_footer">
+              
+                <div class="text-right" style="border-top: 1px solid black;">
+                </div>
+                    <div class="row" style="margin-top:5px;">
+                      <div class="col-1"/>
+                      
+                      <div class="col-4">
+                        <i class="fa fa-map-marker" aria-hidden="true"/>
+                        <span style="font-weight: bold;" t-esc="o.company_id.name"/>
+                      </div>
+                      <div class="col-3">
+                        <i class="fa fa-envelope" aria-hidden="true"/>
+                        <span style="font-weight: bold;" t-esc="o.company_id.email"/>
+                      </div>
+                      <div class="col-3">
+                        <i class="fa fa-phone" aria-hidden="true"/>
+                        <span style="font-weight: bold;" t-esc="o.company_id.mobile"/>
+                      </div>
+                     
+                     </div>  
+                     
+                    <br/>
+                  <div class="row">
+                      <div class="col-1"/>
+                      <div class="col-4">
+                        <i class="fa fa-dropbox" aria-hidden="true"/>
+                        
+                        <span style="font-weight: bold;" t-esc="o.company_id.po_box_no"/>
+                      </div>
+                      <div class="col-3">
+                        <i class="fa fa-globe" aria-hidden="true"/>
+                        <span style="font-weight: bold;" t-esc="o.company_id.website"/>
+                      </div>
+                      <div class="col-3">
+                        <i class="fa fa-phone" aria-hidden="true"/>
+                        <span style="font-weight: bold;" t-esc="o.company_id.phone"/>
+                      </div>
+                     
+                     </div>  
+                  
+                  </div>
             </t>
         </xpath>
     </template>
