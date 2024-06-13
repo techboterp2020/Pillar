@@ -588,7 +588,7 @@
                       <div class="col-4">
                         <i class="fa fa-dropbox" aria-hidden="true"/>
                         
-                        <span style="font-weight: bold;">114456</span>
+                        <span style="font-weight: bold;" t-esc="o.company_id.po_box_no"/>
                       </div>
                       <div class="col-3">
                         <i class="fa fa-globe" aria-hidden="true"/>
