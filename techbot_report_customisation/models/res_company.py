@@ -12,7 +12,7 @@ class ResCompany(models.Model):
     swift_code = fields.Char(string='UAE Swift Code')
     account_no = fields.Char(string='Account No.')
     iban_no = fields.Char(string='IBAN No.')
-    # po_box_no = fields.Char(string='Po Box')
+    po_box_no = fields.Char(string='Po Box')
     custom_sale_terms = fields.Html(string='Default Sale Terms and Conditions', translate=True)
     custom_invoice_terms = fields.Html(string='Default Invoice Terms and Conditions', translate=True)
     enable_logo = fields.Boolean(string='Enable Logo')
