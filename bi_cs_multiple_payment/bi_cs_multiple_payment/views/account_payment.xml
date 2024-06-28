@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_payment_form_inherited" model="ir.ui.view">
+        <field name="name">account.payment.form.inherited</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <field name="has_invoice_lines" invisible="1"/>
+                <notebook>
+                    <page name="pay_inv_lines" string="Facturas" attrs="{'invisible':[('has_invoice_lines','!=',True)]}">
+                        <field name="payment_inv_ids" >
+                            <tree create='false' delete='false'>
+                                <field name="invoice_id" />
+                                <field name="partner_id" />
+                                <field name="currency_id" />
+                                <field name="amount_residual" />
+                                <field name="total_amount" />
+                                <field name="payment_diff" />
+                                <field name="amount_to_pay" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
