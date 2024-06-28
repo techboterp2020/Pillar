@@ -51,7 +51,7 @@
 	'website': 'https://www.browseinfo.in',
 	'price': 19,
     'currency': "EUR",
-	'depends': ['account','account_payment','fx_account_payment'],
+	'depends': ['account','account_payment'],
 	'data': [
 		'security/ir.model.access.csv',
 		'wizard/multi_invoice_payment_views.xml',
