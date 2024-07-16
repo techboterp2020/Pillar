@@ -123,7 +123,7 @@ class AccountPayment(models.Model):
                 for account in payment_lines.account_id:
                     #Concilia los montos totales no por partes
                     for mov_line in payment_lines:
-                        (mov_line + self.sh_to_reconcile).filtered_domain([('account_id', '=', account.id), ('reconciled', '=', False),('doc_number','=',mov_line.doc_number)]).reconcile()
+                        (mov_line + self.sh_to_reconcile).filtered_domain([('account_id', '=', account.id), ('reconciled', '=', False)]).reconcile()
 
 
     @api.depends('amount')
