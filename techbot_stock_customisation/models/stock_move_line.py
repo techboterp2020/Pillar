@@ -26,7 +26,7 @@ class StockMoveLine(models.Model):
     model_year_related = fields.Char(string="Model Year", related='lot_id.model_year')
     color_internal_related = fields.Char(string="Internal Color", related='lot_id.color_internal')
     color_external_related = fields.Char(string="External Color", related='lot_id.color_external')
-    make_related = fields.Char(string='Origin', related='lot_id.make')
+    make_related = fields.Char(string='Origin')
     bill_of_entry_related = fields.Char(string="BOE", related='lot_id.bill_of_entry')
     bill_of_lading_related = fields.Char(string="BOL", related='lot_id.bill_of_lading')
 
