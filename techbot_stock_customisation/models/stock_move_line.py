@@ -101,7 +101,7 @@ class StockMoveLine(models.Model):
         # except Exception as e:
         #     raise UserWarning(str(e))
 
-<<<<<<< HEAD
+
     # def _action_done(self):
     #     res = super(StockMoveLine, self)._action_done()
     #     for line in self:
@@ -132,7 +132,5 @@ class StockMoveLine(models.Model):
     #                     'bill_of_lading': line.bill_of_lading
     #                 })
     #     return res
-=======
->>>>>>> 124ce6293c0118b5f5c8dde68280f978675d99fb
 
 
