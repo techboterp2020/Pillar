@@ -27,7 +27,11 @@
                      padding:10px;background-size: cover;background-repeat: no-repeat;
                          width: 100%;min-height:1753px;"> -->
                     <div class="page">     
+<<<<<<< HEAD
                     <t t-call="techbot_report_customisation.company_header_delivery"/>
+=======
+<!--                    <t t-call="techbot_report_customisation.company_header_delivery"/>-->
+>>>>>>> 124ce6293c0118b5f5c8dde68280f978675d99fb
 
                     <t t-set="o" t-value="o.with_context(lang=o._get_report_lang())" />
                     <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
