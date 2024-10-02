@@ -36,7 +36,7 @@
                  padding:10px;background-size: cover;background-repeat: no-repeat;
                      width: 100%;min-height:1753px;"> -->
                 <!-- <t t-call="techbot_report_customisation.company_header_proforma"/> -->
-                <h6 style="text-align: center; font-weight:bold;margin-top:20%">PRO-FORMA</h6>  
+                <h6 style="text-align: center; font-weight:bold;margin-top:10%">PRO-FORMA</h6>  
                 <div class="row">
                     <div class="col-8">
                         <span style="font-weight:bold;">THE BUYER:</span>
