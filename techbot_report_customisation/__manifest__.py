@@ -7,6 +7,7 @@
     'author': 'Techbot Information Technology LLC',
     'depends': ['sale_management','account'],
     'data': [
+        'reports/external_layout.xml',
         'views/res_partner_bank.xml',
         'reports/reports.xml',
         'reports/proforma_template.xml',

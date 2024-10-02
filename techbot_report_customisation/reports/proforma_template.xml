@@ -27,16 +27,16 @@
 
      <template id="custom_proforma_report">
         <!-- <t t-call="web.basic_layout"> -->
-        <t t-call="web.external_layout_standard">
+        <t t-call="techbot_report_customisation.external_layout_inherit">
                 <t style="text-align:center" t-set="company" t-value="o.company_id"/>
             <!-- <div class="oe_structure"/> -->
             <div class="page">
             <!-- <div class="page"
                  t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});
                  padding:10px;background-size: cover;background-repeat: no-repeat;
-                     width: 100%;min-height:1753px;">
-                <t t-call="techbot_report_customisation.company_header_proforma"/> -->
-                <h6 style="text-align: center; font-weight:bold; text-decoration: underline;">PRO-FORMA</h6>  
+                     width: 100%;min-height:1753px;"> -->
+                <!-- <t t-call="techbot_report_customisation.company_header_proforma"/> -->
+                <h6 style="text-align: center; font-weight:bold;margin-top:20%">PRO-FORMA</h6>  
                 <div class="row">
                     <div class="col-8">
                         <span style="font-weight:bold;">THE BUYER:</span>
@@ -74,16 +74,16 @@
                 <div class="row">
                     <table class="table table-bordered" style="border:1px solid black;">
                         <thead>
-                            <th>S/N</th>
-                            <th>ITEM DESCRIPTION</th>
+                            <th style="font-size:18px">S/N</th>
+                            <th style="font-size:18px">ITEM DESCRIPTION</th>
 <!--                            <th>Model Specification</th>-->
-                            <th>HS-CODE</th>
-                            <th>COUNTRY OF ORIGIN</th>
-                            <th>UNIT OF MEASURE</th>
-                            <th>QTY</th>
-                            <th>UNIT PRICE</th>
-                            <th>DISC.%</th>
-                            <th>TOTAL PRICE</th>
+                            <th style="font-size:18px">HS-CODE</th>
+                            <th style="font-size:18px">COUNTRY OF ORIGIN</th>
+                            <th style="font-size:18px">UNIT OF MEASURE</th>
+                            <th style="font-size:18px">QTY</th>
+                            <th style="font-size:18px">UNIT PRICE</th>
+                            <th style="font-size:18px">DISC.%</th>
+                            <th style="font-size:18px">TOTAL PRICE</th>
                         </thead>
                         <tbody>
                             <t t-set="counter" t-value="1"/>

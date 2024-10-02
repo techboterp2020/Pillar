@@ -27,10 +27,10 @@
     
 
     <template id="custom_invoice_report">
-        <t t-call="web.external_layout_standard">
+        <t t-call="techbot_report_customisation.external_layout_inherit">
             <div class="page mb-4">
               <!--<t t-call="techbot_report_customisation.company_header_invoice"/>-->
-              <h6 style="text-align: center;">Commercial Invoice</h6>
+              <h6 style="text-align: center;margin-top:20%">Commercial Invoice</h6>
               <div class="row">
                   <div class="col-8">
                       <span style="font-weight:bold;">Exporter/Seller:</span><br/>
@@ -218,15 +218,15 @@
               <div class="row">
                   <table class="table table-bordered" style="border:1px solid black;">
                       <thead>
-                          <th>S/N</th>
-                          <th>MAKE</th>
-                          <th>ITEM DESCRIPTIONn</th>
-                          <th>HS-CODE</th>
-                          <th>COUNTRY OF ORIGIN</th>
-                          <th>QTY</th>
-                          <th>UNIT</th>
-                          <th>UNIT PRICE</th>
-                          <th>TOTAL PRICE</th>
+                          <th style="font-size:18px">S/N</th>
+                          <th style="font-size:18px">MAKE</th>
+                          <th style="font-size:18px">ITEM DESCRIPTIONn</th>
+                          <th style="font-size:18px">HS-CODE</th>
+                          <th style="font-size:18px">COUNTRY OF ORIGIN</th>
+                          <th style="font-size:18px">QTY</th>
+                          <th style="font-size:18px">UNIT</th>
+                          <th style="font-size:18px">UNIT PRICE</th>
+                          <th style="font-size:18px">TOTAL PRICE</th>
                       </thead>
                       <tbody>
                           <t t-set="counter" t-value="1"/>
