@@ -12,6 +12,7 @@
         'views/stock_move_line.xml',
         'views/stock_lot.xml',
         'views/stock_quant.xml',
+        'views/product.xml'
     ],
     'license': 'AGPL-3',
     'installable': True,

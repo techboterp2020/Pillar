@@ -1,7 +1,7 @@
 <odoo>
     <template id="external_layout_inherit" inherit_id="web.external_layout_standard">
         <xpath expr="//div[@t-attf-class='header o_company_#{company.id}_layout']/div[@class='row']/div[@class='col-3 mb4']/img" position="attributes">
-            <attribute name="style">max-height: 45px;margin-left:50%</attribute>
+            <attribute name="style">max-height: 75px;margin-left:70%</attribute>
         </xpath>
         <xpath expr="//div[@t-if='company.logo or company.report_header']" position="replace">
             <div t-if="company.logo or company.report_header">

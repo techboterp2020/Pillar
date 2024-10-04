@@ -36,7 +36,7 @@
                  padding:10px;background-size: cover;background-repeat: no-repeat;
                      width: 100%;min-height:1753px;"> -->
                 <!-- <t t-call="techbot_report_customisation.company_header_proforma"/> -->
-                <h6 style="text-align: center; font-weight:bold;margin-top:10%">PRO-FORMA</h6>  
+                <h6 style="text-align: center; font-weight:bold;font-size:25px;margin-top:5%">PRO-FORMA</h6>  
                 <div class="row">
                     <div class="col-8">
                         <span style="font-weight:bold;">THE BUYER:</span>
@@ -110,7 +110,7 @@
                                         <span t-esc="line.product_id.hs_code"/>
                                     </td>
                                     <td style="text-align:center;">
-                                        <span t-field="line.product_id.country_of_origin"/>
+                                        <span t-field="line.product_id.receipt_origin"/>
                                     </td>
                                     <td style="text-align:center;">
                                         <span t-esc="line.product_uom.name"/>

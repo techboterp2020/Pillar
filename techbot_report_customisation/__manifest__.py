@@ -16,7 +16,8 @@
         'views/res_company_view.xml',
         'views/sale_order_view.xml',
         'views/account_move_view.xml',
-        'views/stock_picking_view.xml'
+        'views/stock_picking_view.xml',
+        'reports/payment_receipt_inherit.xml'
     ],
     'installable': True,
     'auto_install': False,
