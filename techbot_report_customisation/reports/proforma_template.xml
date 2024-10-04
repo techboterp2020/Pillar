@@ -27,7 +27,7 @@
 
      <template id="custom_proforma_report">
         <!-- <t t-call="web.basic_layout"> -->
-        <t t-call="techbot_report_customisation.external_layout_inherit">
+        <t t-call="techbot_report_customisation.my_own_layout">
                 <t style="text-align:center" t-set="company" t-value="o.company_id"/>
             <!-- <div class="oe_structure"/> -->
             <div class="page">
