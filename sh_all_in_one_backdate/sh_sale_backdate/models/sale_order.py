@@ -28,7 +28,7 @@ class SaleOrder(models.Model):
         if self.company_id.backdate_for_sale_order:
             return {
                 'state': 'sale',
-                # 'date_order': fields.Datetime.now()
+                'date_order': fields.Datetime.now()
             }
         else:
             return {
