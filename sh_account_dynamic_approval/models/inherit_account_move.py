@@ -131,49 +131,49 @@ class AccountMove(models.Model):
 
     @api.depends('amount_untaxed', 'amount_total')
     def compute_approval_level(self):
+        for rec in self:
+            if rec.company_id.approval_based_on:
+                if rec.company_id.approval_based_on == 'untaxed_amount':
 
-        if self.company_id.approval_based_on:
-            if self.company_id.approval_based_on == 'untaxed_amount':
+                    account_approvals = self.env['sh.account.approval.config'].search(
+                        [('min_amount', '<', self.amount_untaxed), ('company_ids.id', 'in', [self.env.company.id])])
 
-                account_approvals = self.env['sh.account.approval.config'].search(
-                    [('min_amount', '<', self.amount_untaxed), ('company_ids.id', 'in', [self.env.company.id])])
+                    listt = []
+                    for account_approval in account_approvals:
+                        listt.append(account_approval.min_amount)
 
-                listt = []
-                for account_approval in account_approvals:
-                    listt.append(account_approval.min_amount)
+                    if listt:
+                        account_approval = account_approvals.filtered(
+                            lambda x: x.min_amount == max(listt))
 
-                if listt:
-                    account_approval = account_approvals.filtered(
-                        lambda x: x.min_amount == max(listt))
+                        rec.update({
+                            'approval_level_id': account_approval[0].id
+                        })
+                    else:
+                        rec.approval_level_id = False
 
-                    self.update({
-                        'approval_level_id': account_approval[0].id
-                    })
-                else:
-                    self.approval_level_id = False
+                if rec.company_id.approval_based_on == 'total':
 
-            if self.company_id.approval_based_on == 'total':
+                    account_approvals = self.env['sh.account.approval.config'].search(
+                        [('min_amount', '<', self.amount_total)])
 
-                account_approvals = self.env['sh.account.approval.config'].search(
-                    [('min_amount', '<', self.amount_total)])
+                    listt = []
+                    for account_approval in account_approvals:
+                        listt.append(account_approval.min_amount)
 
-                listt = []
-                for account_approval in account_approvals:
-                    listt.append(account_approval.min_amount)
+                    if listt:
+                        account_approval = account_approvals.filtered(
+                            lambda x: x.min_amount == max(listt))
 
-                if listt:
-                    account_approval = account_approvals.filtered(
-                        lambda x: x.min_amount == max(listt))
+                        rec.update({
+                            'approval_level_id': account_approval[0].id
+                        })
 
-                    self.update({
-                        'approval_level_id': account_approval[0].id
-                    })
+                    else:
+                        rec.approval_level_id = False
 
-                else:
-                    self.approval_level_id = False
-
-        else:
-            self.approval_level_id = False
+            else:
+                rec.approval_level_id = False
 
     def action_approve(self):
         invoice_template_id = self.env.ref(
