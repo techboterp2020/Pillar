@@ -136,7 +136,7 @@ class AccountMove(models.Model):
                 if rec.company_id.approval_based_on == 'untaxed_amount':
 
                     account_approvals = self.env['sh.account.approval.config'].search(
-                        [('min_amount', '<', self.amount_untaxed), ('company_ids.id', 'in', [self.env.company.id])])
+                        [('min_amount', '<', rec.amount_untaxed), ('company_ids.id', 'in', [rec.env.company.id])])
 
                     listt = []
                     for account_approval in account_approvals:
@@ -155,7 +155,7 @@ class AccountMove(models.Model):
                 if rec.company_id.approval_based_on == 'total':
 
                     account_approvals = self.env['sh.account.approval.config'].search(
-                        [('min_amount', '<', self.amount_total)])
+                        [('min_amount', '<', rec.amount_total)])
 
                     listt = []
                     for account_approval in account_approvals:
