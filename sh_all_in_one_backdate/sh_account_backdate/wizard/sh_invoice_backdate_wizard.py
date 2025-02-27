@@ -40,11 +40,11 @@ class InvoiceBackdateWizard(models.TransientModel):
 
         if self.company_id.enable_backdate_for_move:
 
-            self.account_move_ids.write({
+            self.account_move_ids.sudo().write({
                 'invoice_date' : self.invoice_date,
                 'remarks' : self.remarks
             })
 
-            self.account_move_ids.line_ids.write({
+            self.account_move_ids.line_ids.sudo().write({
                 'date': self.invoice_date,
             })
