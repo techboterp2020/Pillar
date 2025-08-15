@@ -19,7 +19,7 @@
 
             <div style="margin-top:300px;text-align:center;width:100%;">
                 <h5>
-                    <span style="font-weight:bold;">COMMERCIAL INVOICE</span>
+                    <span style="font-weight:bold;font-size:30px">COMMERCIAL INVOICE</span>
                 </h5> 
             </div>      
         <br/><br/><br/>
@@ -30,7 +30,13 @@
         <t t-call="techbot_report_customisation.my_own_layout">
             <div class="page mb-4">
               <!--<t t-call="techbot_report_customisation.company_header_invoice"/>-->
-              <h6 style="text-align: center; font-weight:bold;font-size:25px;margin-top:5%">Commercial Invoice</h6>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">Commercial Invoice</h6>
+              <br></br>
+              <br></br>
               <div class="row">
                   <div class="col-8">
                       <span style="font-weight:bold;">Exporter/Seller:</span><br/>

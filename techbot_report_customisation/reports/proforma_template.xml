@@ -36,9 +36,16 @@
                  padding:10px;background-size: cover;background-repeat: no-repeat;
                      width: 100%;min-height:1753px;"> -->
                 <!-- <t t-call="techbot_report_customisation.company_header_proforma"/> -->
-                <h6 style="text-align: center; font-weight:bold;font-size:25px;margin-top:5%">PRO-FORMA</h6>  
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">'PROFORMA INVOICE</h6>  
+                <br></br>
+                <br></br>
                 <div class="row">
                     <div class="col-8">
+                    
                         <span style="font-weight:bold;">THE BUYER:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
                         <br/>
