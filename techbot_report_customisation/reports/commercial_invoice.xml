@@ -27,11 +27,11 @@
     
 
     <template id="custom_invoice_report">
+        <t t-call="web.html_container">
         <t t-call="techbot_report_customisation.my_own_layout">
             <div class="page mb-4">
               <!--<t t-call="techbot_report_customisation.company_header_invoice"/>-->
-              <br></br>
-              <br></br>
+              
               <br></br>
               <br></br>
               <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">Commercial Invoice</h6>
@@ -417,44 +417,29 @@
 
         </div>
           
-        <div t-attf-class="footer o_standard_footer">
+        <div t-attf-class="footer o_standard_footer" style="font-size:13px">
               
-            <div class="text-right" style="border-top: 1px solid black;">
-            </div>
+            
                 <div class="row" style="margin-top:5px;">
-                  <div class="col-1"/>
                   
-                  <div class="col-4">
-                    <i class="fa fa-map-marker" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.name"/>
+                  
+                  <div class="col-6">
+                    Address: Ras Al Khor Industrial Area 3 Dubai Auto Zone<br/>Showroom 339<br/>P.O.Box: 114486<br/>Dubai -UAE
                   </div>
-                  <div class="col-3">
-                    <i class="fa fa-envelope" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.email"/>
-                  </div>
-                  <div class="col-3">
-                    <i class="fa fa-phone" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.mobile"/>
-                  </div>
+                  
                  
-                 </div>  
-                 
-                <br/>
-              <div class="row">
-                  <div class="col-1"/>
-                  <div class="col-4">
-                    <i class="fa fa-dropbox" aria-hidden="true"/>
-                    
-                    <span style="font-weight: bold;" t-esc="o.company_id.po_box_no"/>
+                
+                  
+                  <div class="col-6 text-end">
+                    Tel: +971 4 584 6836
+                    <br/>
+                    Fax: +971 4 572 4517
+                    <br/>
+                    Email: info@pillarmotors.ae
+                    <br/>
+                    Website: www.pillarmotors.ae
                   </div>
-                  <div class="col-3">
-                    <i class="fa fa-globe" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.website"/>
-                  </div>
-                  <div class="col-3">
-                    <i class="fa fa-phone" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.phone"/>
-                  </div>
+                  
                  
                  </div>  
               
@@ -466,7 +451,7 @@
               
               
         
-          
+        </t>  
 
         
         </t>
