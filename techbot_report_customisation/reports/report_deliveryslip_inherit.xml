@@ -16,10 +16,10 @@
         <br/><br/><br/>
     </template>
 
-    <template id="report_delivery_document_inherit" inherit_id="stock.report_delivery_document">
+    <template id="packing_list_report">
         
-        <xpath expr="//t[@t-call='web.external_layout']" position="replace">
-            <t t-call="web.external_layout_standard">
+        <t t-call="web.html_container">
+        <t t-call="techbot_report_customisation.my_own_layout">
                 <t t-set="company" t-value="o.company_id"/>
                 <!-- <div class="oe_structure"/> -->
                 <!-- <div class="page"
@@ -28,14 +28,16 @@
                          width: 100%;min-height:1753px;"> -->
                     <div class="page">     
 
-                    <t t-call="techbot_report_customisation.company_header_delivery"/>
-
-<!--                    <t t-call="techbot_report_customisation.company_header_delivery"/>-->
+                    
 
 
                     <t t-set="o" t-value="o.with_context(lang=o._get_report_lang())" />
                     <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
-                    <h6 style="text-align: center; font-weight:bold;">PACKING LIST</h6>        
+                    <br></br>
+                    <br></br>
+                    <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">Commercial Invoice</h6>
+                    <br></br>
+                    <br></br>        
                     <div class="row">
                         <div class="col-8">
                             <!-- <t t-if="o.should_print_delivery_address()">
@@ -607,7 +609,17 @@
                   
                   </div>
             </t>
-        </xpath>
+        </t>
+    </template>
+
+    <template id="report_packing_list">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang"/>
+                <t t-set="company" t-value="o.company_id"/>
+                <t t-call="techbot_report_customisation.packing_list_report"/>
+            </t>
+        </t>
     </template>
 
     <!-- <template id="stock_report_delivery_has_serial_move_line_inherit" inherit_id="stock.stock_report_delivery_has_serial_move_line">
