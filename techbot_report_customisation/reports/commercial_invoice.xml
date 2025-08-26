@@ -424,20 +424,20 @@
                   
                   
                   <div class="col-6">
-                    Address: Ras Al Khor Industrial Area 3 Dubai Auto Zone<br/>Showroom 339<br/>P.O.Box: 114486<br/>Dubai -UAE
+                    Address: <t t-esc="request.env.company.street"/><br/><t t-esc="request.env.company.street2"/><br/>P.O.Box: <t t-esc="request.env.company.po_box_no"/><br/><t t-esc="request.env.company.country_id.name"/>
                   </div>
                   
                  
                 
                   
                   <div class="col-6 text-end">
-                    Tel: +971 4 584 6836
+                    Tel: <t t-esc="request.env.company.mobile"/>
                     <br/>
-                    Fax: +971 4 572 4517
+                    Fax: <t t-esc="request.env.company.x_studio_fax"/>
                     <br/>
-                    Email: info@pillarmotors.ae
+                    Email: <t t-esc="request.env.company.email"/>
                     <br/>
-                    Website: www.pillarmotors.ae
+                    Website: <t t-esc="request.env.company.website"/>
                   </div>
                   
                  

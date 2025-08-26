@@ -15,9 +15,9 @@
                                     <li>
                                     <span t-esc="company.partner_id.name"/>
                                     <br/>
-                                    <span t-esc="company.partner_id.country_id.name"/>
-                                    <br/>
                                     TRN: <span t-esc="company.partner_id.vat"/>
+                                    <br/>
+                                    <span t-esc="company.partner_id.country_id.name"/>
                                     </li>
                                     <li>
                                         
@@ -48,9 +48,9 @@
                                     <li>
                                     <span t-esc="company.partner_id.name"/>
                                     <br/>
-                                    <span t-esc="company.partner_id.country_id.name"/>
-                                    <br/>
                                     TRN: <span t-esc="company.partner_id.vat"/>
+                                    <br/>
+                                    <span t-esc="company.partner_id.country_id.name"/>
                                     </li>
                                     <li>
                                         
