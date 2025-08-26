@@ -424,20 +424,20 @@
                   
                   
                   <div class="col-6">
-                    Address: <t t-esc="request.env.company.street"/><br/><t t-esc="request.env.company.street2"/><br/>P.O.Box: <t t-esc="request.env.company.po_box_no"/><br/><t t-esc="request.env.company.country_id.name"/>
+                    Address: <t t-esc="company.street"/><br/><t t-esc="company.street2"/><br/>P.O.Box: <t t-esc="company.po_box_no"/><br/><t t-esc="company.country_id.name"/>
                   </div>
                   
                  
                 
                   
                   <div class="col-6 text-end">
-                    Tel: <t t-esc="request.env.company.mobile"/>
+                    Tel: <t t-esc="company.mobile"/>
                     <br/>
-                    Fax: <t t-esc="request.env.company.x_studio_fax"/>
+                    Fax: <t t-esc="company.x_studio_fax"/>
                     <br/>
-                    Email: <t t-esc="request.env.company.email"/>
+                    Email: <t t-esc="company.email"/>
                     <br/>
-                    Website: <t t-esc="request.env.company.website"/>
+                    Website: <t t-esc="company.website"/>
                   </div>
                   
                  
