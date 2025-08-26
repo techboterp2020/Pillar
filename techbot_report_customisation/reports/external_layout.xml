@@ -1,5 +1,6 @@
 <odoo>
     <template id="external_layout_inherit" inherit_id="web.external_layout_standard">
+        <meta charset="utf-8"/>
         <xpath expr="//div[@t-attf-class='header o_company_#{company.id}_layout']" position="replace">
             <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
                 <div>
@@ -14,6 +15,8 @@
                                     <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
                                     <li>
                                     <span t-esc="company.partner_id.name"/>
+                                    <br/>
+                                    <span t-esc="company.x_studio_arabic_name"/>
                                     <br/>
                                     TRN: <span t-esc="company.partner_id.vat"/>
                                     <br/>
@@ -34,6 +37,7 @@
 
     <template id="my_own_layout">
         <t t-name="web.external_layout_standard">
+            <meta charset="utf-8"/>
             <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
                 <br></br>
                 <br></br>
@@ -49,6 +53,8 @@
                                     <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
                                     <li>
                                     <span t-esc="company.partner_id.name"/>
+                                    <br/>
+                                    <span t-esc="company.x_studio_arabic_name"/>
                                     <br/>
                                     TRN: <span t-esc="company.partner_id.vat"/>
                                     <br/>
