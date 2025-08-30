@@ -1,6 +1,6 @@
 <odoo>
     <template id="external_layout_inherit" inherit_id="web.external_layout_standard">
-        <meta charset="utf-8"/>
+        
         <xpath expr="//div[@t-attf-class='header o_company_#{company.id}_layout']" position="replace">
             <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
                 <div>
