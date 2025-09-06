@@ -417,20 +417,23 @@
 
         </div>
           
-        <div t-attf-class="footer o_standard_footer" style="font-size:13px">
+        <div t-attf-class="footer o_standard_footer" style="font-size:15px">
               
             
                 <div class="row" style="margin-top:5px;">
                   
                   
-                  <div class="col-6">
+                  <div class="col-4">
                     Address: <t t-esc="company.street"/><br/><t t-esc="company.street2"/><br/>P.O.Box: <t t-esc="company.po_box_no"/><br/><t t-esc="company.country_id.name"/>
                   </div>
                   
+                  <div class="col-4" style="text-align:center">
+                    Page: <span class="page"/> / <span class="topage"/>
+                  </div>
                  
                 
                   
-                  <div class="col-6 text-end">
+                  <div class="col-4 text-end">
                     Tel: <t t-esc="company.mobile"/>
                     <br/>
                     Fax: <t t-esc="company.x_studio_fax"/>
