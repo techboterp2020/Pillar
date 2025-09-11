@@ -218,7 +218,16 @@
                     </table>
                 </div>
                 <br/>
-                <div class="row">
+
+                <p>
+                                        <span style="font-weight:bold;text-decoration:underline;">
+                                            TERMS AND CONDITIONS:</span><br/>
+                                            <span t-esc="o.note"/>
+                                            <!-- 1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
+                                            <span t-esc="o.custom_sale_note"/> -->
+                                    </p>
+                                    
+                <!-- <div class="row">
                     <table class="table table-bordered" style="border:1px solid black;">
                         <tbody>
                             <tr>
@@ -227,14 +236,13 @@
                                         <span style="font-weight:bold;text-decoration:underline;">
                                             TERMS AND CONDITIONS:</span><br/>
                                             <span t-esc="o.note"/>
-                                            <!-- 1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
-                                            <span t-esc="o.custom_sale_note"/> -->
+                                            
                                     </p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> -->
                 <br/>
                 <!-- <div class="row">
                     <span style="font-weight:bold;white-space:nowrap;">
