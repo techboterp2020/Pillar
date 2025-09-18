@@ -5,17 +5,20 @@
     'category': 'Reports',
     'summary': """Reports for Proforma and Invoice""",
     'author': 'Techbot Information Technology LLC',
-    'depends': ['sale_management','account'],
+    'depends': ['sale_management','account','stock'],
     'data': [
+        'reports/external_layout.xml',
         'views/res_partner_bank.xml',
         'reports/reports.xml',
         'reports/proforma_template.xml',
-        'reports/invoice_template.xml',
+        'reports/commercial_invoice.xml',
         'reports/report_deliveryslip_inherit.xml',
         'views/res_company_view.xml',
         'views/sale_order_view.xml',
         'views/account_move_view.xml',
-        'views/stock_picking_view.xml'
+        'views/stock_picking_view.xml',
+        'reports/payment_receipt_inherit.xml',
+        # 'reports/invoice_inherit.xml'
     ],
     'installable': True,
     'auto_install': False,

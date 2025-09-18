@@ -1,0 +1,7 @@
+<odoo>
+    <template id="report_payment_receipt_document_inherit" inherit_id="account.report_payment_receipt_document">
+        <xpath expr="//table[@class='table table-sm']" position="attributes">
+            <attribute name="t-if">invoices</attribute>
+        </xpath>
+    </template>
+</odoo>

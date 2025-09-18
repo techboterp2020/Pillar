@@ -14,7 +14,7 @@
 <!--                    <t t-else="">-->
 <!--                        <div style="height:200px;"/>-->
 <!--                    </t>-->
-                    <div style="margin-top:300px;text-align:center;width:100%;text-decoration:underline;">
+                    <div style="margin-top:300px;text-align:center;width:100%;">
                         <h5>
                             <span style="font-weight:bold;">PRO-FORMA</span>
                         </h5>
@@ -26,19 +26,25 @@
     </template>
 
      <template id="custom_proforma_report">
-        <!-- <t t-call="web.basic_layout"> -->
-        <t t-call="web.external_layout_standard">
-                <t t-set="company" t-value="o.company_id"/>
+        <t t-call="web.html_container">
+        <t t-call="techbot_report_customisation.my_own_layout">
+                <t style="text-align:center" t-set="company" t-value="o.company_id"/>
             <!-- <div class="oe_structure"/> -->
             <div class="page">
             <!-- <div class="page"
                  t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % o.company_id.layout_background_image.decode('utf-8') if o.company_id.layout_background_image else '/base/static/img/bg_background_template.jpg' }});
                  padding:10px;background-size: cover;background-repeat: no-repeat;
-                     width: 100%;min-height:1753px;">
-                <t t-call="techbot_report_customisation.company_header_proforma"/> -->
-                <h6 style="text-align: center; font-weight:bold; text-decoration: underline;">PRO-FORMA</h6>  
+                     width: 100%;min-height:1753px;"> -->
+                <!-- <t t-call="techbot_report_customisation.company_header_proforma"/> -->
+                
+                <br></br>
+                <br></br>
+                <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">PROFORMA INVOICE</h6>  
+                <br></br>
+                <br></br>
                 <div class="row">
                     <div class="col-8">
+                    
                         <span style="font-weight:bold;">THE BUYER:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
                         <br/>
@@ -74,16 +80,16 @@
                 <div class="row">
                     <table class="table table-bordered" style="border:1px solid black;">
                         <thead>
-                            <th>S/N</th>
-                            <th>Item Description</th>
+                            <th style="font-size:18px">S/N</th>
+                            <th style="font-size:18px">ITEM DESCRIPTION</th>
 <!--                            <th>Model Specification</th>-->
-                            <th>HS-Code</th>
-                            <th>Country of Origin</th>
-                            <th>Unit of Measurement</th>
-                            <th>Qty</th>
-                            <th>Unit Price</th>
-                            <th>Disc.%</th>
-                            <th>Total Price</th>
+                            <th style="font-size:18px">HS-CODE</th>
+                            <th style="font-size:18px">COUNTRY OF ORIGIN</th>
+                            <th style="font-size:18px">UNIT OF MEASURE</th>
+                            <th style="font-size:18px">QTY</th>
+                            <th style="font-size:18px">UNIT PRICE</th>
+                            <th style="font-size:18px">DISC.%</th>
+                            <th style="font-size:18px">TOTAL PRICE</th>
                         </thead>
                         <tbody>
                             <t t-set="counter" t-value="1"/>
@@ -110,7 +116,7 @@
                                         <span t-esc="line.product_id.hs_code"/>
                                     </td>
                                     <td style="text-align:center;">
-                                        <span t-field="line.product_id.country_of_origin"/>
+                                        <span t-field="line.product_id.receipt_origin"/>
                                     </td>
                                     <td style="text-align:center;">
                                         <span t-esc="line.product_uom.name"/>
@@ -192,7 +198,7 @@
                                 <td colspan="8">
                                     <p>
                                         BENEFICIARY: <span t-esc="o.partner_bank_id.beneficiary"/><br/>
-                                        Bank Details: <span t-esc="o.partner_bank_id.bank_id.name"/><br/>
+                                        Bank Name: <span t-esc="o.partner_bank_id.bank_id.name"/><br/>
                                         Bank Address: <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.street"/>
                                         <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.street2"/>
                                         <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.city"/>
@@ -212,7 +218,16 @@
                     </table>
                 </div>
                 <br/>
-                <div class="row">
+
+                <p>
+                                        <span style="font-weight:bold;text-decoration:underline;">
+                                            TERMS AND CONDITIONS:</span><br/>
+                                            <span t-esc="o.note"/>
+                                            <!-- 1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
+                                            <span t-esc="o.custom_sale_note"/> -->
+                                    </p>
+                                    
+                <!-- <div class="row">
                     <table class="table table-bordered" style="border:1px solid black;">
                         <tbody>
                             <tr>
@@ -221,14 +236,13 @@
                                         <span style="font-weight:bold;text-decoration:underline;">
                                             TERMS AND CONDITIONS:</span><br/>
                                             <span t-esc="o.note"/>
-                                            <!-- 1. Payment Term: <span t-esc="o.payment_term_id.name"/><br/>
-                                            <span t-esc="o.custom_sale_note"/> -->
+                                            
                                     </p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> -->
                 <br/>
                 <!-- <div class="row">
                     <span style="font-weight:bold;white-space:nowrap;">
@@ -237,48 +251,40 @@
                 </div> -->
             </div>
 
-            <div t-attf-class="footer o_standard_footer">
+            <div t-attf-class="footer o_standard_footer" style="font-size:15px">
               
-                <div class="text-right" style="border-top: 1px solid black;">
-                </div>
-                    <div class="row" style="margin-top:5px;">
-                      <div class="col-1"/>
-                      
-                      <div class="col-4">
-                        <i class="fa fa-map-marker" aria-hidden="true"/>
-                        <span style="font-weight: bold;" t-esc="o.company_id.name"/>
-                      </div>
-                      <div class="col-3">
-                        <i class="fa fa-envelope" aria-hidden="true"/>
-                        <span style="font-weight: bold;" t-esc="o.company_id.email"/>
-                      </div>
-                      <div class="col-3">
-                        <i class="fa fa-phone" aria-hidden="true"/>
-                        <span style="font-weight: bold;" t-esc="o.company_id.mobile"/>
-                      </div>
-                     
-                     </div>  
-                     
-                    <br/>
-                  <div class="row">
-                      <div class="col-1"/>
-                      <div class="col-4">
-                        <i class="fa fa-dropbox" aria-hidden="true"/>
-                        
-                        <span style="font-weight: bold;" t-esc="o.company_id.po_box_no"/>
-                      </div>
-                      <div class="col-3">
-                        <i class="fa fa-globe" aria-hidden="true"/>
-                        <span style="font-weight: bold;" t-esc="o.company_id.website"/>
-                      </div>
-                      <div class="col-3">
-                        <i class="fa fa-phone" aria-hidden="true"/>
-                        <span style="font-weight: bold;" t-esc="o.company_id.phone"/>
-                      </div>
-                     
-                     </div>  
+            
+                <div class="row" style="margin-top:5px;">
                   
+                  
+                 <div class="col-4">
+                    Address: <t t-esc="company.street"/><br/><t t-esc="company.street2"/><br/>P.O.Box: <t t-esc="company.po_box_no"/><br/><t t-esc="company.country_id.name"/>
                   </div>
+                  
+                  <div class="col-4" style="text-align:center">
+                    Page: <span class="page"/> / <span class="topage"/>
+                  </div>
+                 
+                
+                  
+                  <div class="col-4 text-end">
+                    Tel: <t t-esc="company.mobile"/>
+                    <br/>
+                    Fax: <t t-esc="company.x_studio_fax"/>
+                    <br/>
+                    Email: <t t-esc="company.email"/>
+                    <br/>
+                    Website: <t t-esc="company.website"/>
+                  </div>
+                  
+                 
+                 </div>
+                  
+                 
+                 <!-- </div>   -->
+              
+              </div>
+            </t>
         </t>
      </template>
 

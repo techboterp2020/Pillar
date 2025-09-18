@@ -19,7 +19,7 @@
 
             <div style="margin-top:300px;text-align:center;width:100%;">
                 <h5>
-                    <span style="font-weight:bold;">COMMERCIAL INVOICE</span>
+                    <span style="font-weight:bold;font-size:30px">COMMERCIAL INVOICE</span>
                 </h5> 
             </div>      
         <br/><br/><br/>
@@ -27,10 +27,16 @@
     
 
     <template id="custom_invoice_report">
-        <t t-call="techbot_report_customisation.external_layout_inherit">
+        <t t-call="web.html_container">
+        <t t-call="techbot_report_customisation.my_own_layout">
             <div class="page mb-4">
               <!--<t t-call="techbot_report_customisation.company_header_invoice"/>-->
-              <h6 style="text-align: center; font-weight:bold;font-size:25px;margin-top:5%">Commercial Invoice</h6>
+              
+              <br></br>
+              <br></br>
+              <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">Commercial Invoice</h6>
+              <br></br>
+              <br></br>
               <div class="row">
                   <div class="col-8">
                       <span style="font-weight:bold;">Exporter/Seller:</span><br/>
@@ -411,44 +417,32 @@
 
         </div>
           
-        <div t-attf-class="footer o_standard_footer">
+        <div t-attf-class="footer o_standard_footer" style="font-size:15px">
               
-            <div class="text-right" style="border-top: 1px solid black;">
-            </div>
+            
                 <div class="row" style="margin-top:5px;">
-                  <div class="col-1"/>
+                  
                   
                   <div class="col-4">
-                    <i class="fa fa-map-marker" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.name"/>
+                    Address: <t t-esc="company.street"/><br/><t t-esc="company.street2"/><br/>P.O.Box: <t t-esc="company.po_box_no"/><br/><t t-esc="company.country_id.name"/>
                   </div>
-                  <div class="col-3">
-                    <i class="fa fa-envelope" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.email"/>
-                  </div>
-                  <div class="col-3">
-                    <i class="fa fa-phone" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.mobile"/>
+                  
+                  <div class="col-4" style="text-align:center">
+                    Page: <span class="page"/> / <span class="topage"/>
                   </div>
                  
-                 </div>  
-                 
-                <br/>
-              <div class="row">
-                  <div class="col-1"/>
-                  <div class="col-4">
-                    <i class="fa fa-dropbox" aria-hidden="true"/>
-                    
-                    <span style="font-weight: bold;" t-esc="o.company_id.po_box_no"/>
+                
+                  
+                  <div class="col-4 text-end">
+                    Tel: <t t-esc="company.mobile"/>
+                    <br/>
+                    Fax: <t t-esc="company.x_studio_fax"/>
+                    <br/>
+                    Email: <t t-esc="company.email"/>
+                    <br/>
+                    Website: <t t-esc="company.website"/>
                   </div>
-                  <div class="col-3">
-                    <i class="fa fa-globe" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.website"/>
-                  </div>
-                  <div class="col-3">
-                    <i class="fa fa-phone" aria-hidden="true"/>
-                    <span style="font-weight: bold;" t-esc="o.company_id.phone"/>
-                  </div>
+                  
                  
                  </div>  
               
@@ -460,7 +454,7 @@
               
               
         
-          
+        </t>  
 
         
         </t>
@@ -476,4 +470,5 @@
         </t>
     </template>
 
+    
 </odoo>
