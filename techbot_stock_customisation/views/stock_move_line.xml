@@ -31,7 +31,7 @@
                 <field name="model_year_related" optional="show"/>
                 <field name="color_internal_related" optional="show"/>
                 <field name="color_external_related" optional="show"/>
-                <field name="make_related" optional="show"/>
+                <!-- <field name="make_related" optional="show"/> -->
                 <field name="bill_of_entry_related" optional="show"/>
                 <field name="bill_of_lading_related" optional="show"/>
             </xpath>
