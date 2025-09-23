@@ -35,7 +35,7 @@
                     <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
                     <br></br>
                     <br></br>
-                    <h1 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">PACKING LIST</h1>
+                    <h2 style="text-align: center;color:#1C216A">PACKING LIST</h2>
                     <br></br>
                     <br></br>        
                     <div class="row">
