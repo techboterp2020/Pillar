@@ -35,7 +35,7 @@
                     <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
                     <br></br>
                     <br></br>
-                    <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">Packing List</h6>
+                    <h1 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">PACKING LIST</h1>
                     <br></br>
                     <br></br>        
                     <div class="row">
@@ -74,7 +74,7 @@
                     <br/>
                     <div class="row">
                         <div class="col-7">
-                            <span><strong>Exporter/Seller:</strong></span><br/>
+                            <span style="color:#B69494"><strong style="color:#B69494">EXPORTED/SELLER:</strong></span><br/>
                             <t t-if="o.company_id.name">
                                 <span t-field="o.company_id.name"/><br/>
                             </t>
@@ -101,24 +101,24 @@
                             </t>
                         </div>
                         <div class="col-5">
-                            <h2>
-                                <span t-field="o.name"/>
-                            </h2>
+                            <span>
+                                <strong t-field="o.name"/>
+                            </span>
                             
-                            <span><strong>CI No.</strong></span>
+                            <span style="color:#B69494"><strong style="color:#B69494">CI No.</strong></span>
                             <span t-field="o.ci_no"/><br/>
                             
-                            <span><strong>Date</strong></span>
+                            <span style="color:#B69494"><strong style="color:#B69494">DATE</strong></span>
                             <span t-field="o.invoice_date"/><br/>
                             
-                            <span><strong>BL/AWB/TWB No.</strong></span>
+                            <span style="color:#B69494"><strong style="color:#B69494">BL/AWB/TWB No.</strong></span>
                             <span t-field="o.bl_no"/>
                         </div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-7">
-                            <span><strong>Consignee:</strong></span><br/>
+                            <span style="color:#B69494"><strong style="color:#B69494">CONSIGNEE:</strong></span><br/>
                             <span t-field="o.consignee_id.name"/><br/>
                             <t t-if="o.consignee_id.street">
                                 <span t-field="o.consignee_id.street"/><br/>
@@ -140,7 +140,7 @@
                             </t>
                         </div>
                         <div class="col-5">
-                            <span><strong>Buyer(if not consignee):</strong></span><br/>
+                            <span style="color:#B69494"><strong style="color:#B69494">BUYER(if not consignee):</strong></span><br/>
                             <span t-field="o.partner_id.name"/><br/>
                             <t t-if="o.partner_id.street">
                                 <span t-field="o.partner_id.street"/><br/>
@@ -166,25 +166,25 @@
                         <tr>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Method of Dispatch</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">METHOD OF DISPATCH:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.method_of_dispatch"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Delivery Term:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">DELIVERY TERM:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.delivery_term"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Type of Shipment:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">TYPE OF SHIPMENT:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.type_of_shipment"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Country of Final Destination:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">COUNTRY OF FINAL DESTINATION:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.country_final_destination"/>
                             </td>
@@ -192,25 +192,25 @@
                         <tr>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Vessel/Aircraft/Truck:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">VESSEL/AIRCRAFT/TRUCK:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.transport_type"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Voyage No.</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">VOYAGE NO:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.voyage_no"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Packing Information</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">PACKING INFORMATION:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.packing_information"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Port of Loading:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">POST OF LANDING:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.port_of_loading"/>
                             </td>
@@ -218,19 +218,19 @@
                         <tr>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Date of Departure:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">DATE OF DEPARTURE:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.departure_date"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Port of Discharge:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">PORT OF DISCHARGE:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.port_of_discharge"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;">Final Destination:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">FINAL DESTINATION:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.final_destination"/>
                             </td>
@@ -258,9 +258,9 @@
                     <table class="table table-bordered" t-if="o.state!='done'" name="stock_move_table" style="border:1px solid black;">
                         <thead>
                             <tr>
-                                <th name="th_sm_product"><strong>Product</strong></th>
-                                <th name="th_sm_ordered"><strong>Ordered</strong></th>
-                                <th name="th_sm_quantity"><strong>Delivered</strong></th>
+                                <th name="th_sm_product"><strong>PRODUCT</strong></th>
+                                <th name="th_sm_ordered"><strong>ORDERED</strong></th>
+                                <th name="th_sm_quantity"><strong>DELIVERED</strong></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -288,7 +288,7 @@
                         <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" groups="stock.group_lot_on_delivery_slip"/>
                         <thead>
                             <tr>
-                                <th name="th_sml_product"><strong>Item Description</strong></th>
+                                <th name="th_sml_product"><strong>ITEM DESCRIPTION</strong></th>
                                 <!-- <t name="lot_serial" t-if="has_serial_number">
                                     <th>
                                         Lot/Serial Number
@@ -298,16 +298,16 @@
                                     HS CODE
                                 </th>
                                 <th>
-                                    Country of Origin
+                                    COUNTRY OF ORIGIN
                                 </th>
                                 <!-- <th name="th_sml_qty_ordered" class="text-center" t-if="not has_serial_number">
                                     <strong>Ordered</strong>
                                 </th> -->
-                                <th name="th_sml_quantity" class="text-center"><strong>Quantity</strong></th>
-                                <th name="th_sm_measurement"><strong>Measurement</strong></th>
-                                <th name="th_sm_net_weight"><strong>Net Weight(KG)</strong></th>
-                                <th name="th_sm_total_weight"><strong>Gross Weight(KG)</strong></th>
-                                <th name="th_sm_remarks"><strong>Remarks</strong></th>
+                                <th name="th_sml_quantity" class="text-center"><strong>QUANTITY</strong></th>
+                                <th name="th_sm_measurement"><strong>MEASUREMENT</strong></th>
+                                <th name="th_sm_net_weight"><strong>NET WEIGHT(KG)</strong></th>
+                                <th name="th_sm_total_weight"><strong>GROSS WEIGHT(KG)</strong></th>
+                                <th name="th_sm_remarks"><strong>REMARKS</strong></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -375,7 +375,7 @@
                             </t>
                             <tr>
                                 <td colspan="4">
-                                    <center><b>Total</b></center>
+                                    <center><b>TOTAL</b></center>
                                 </td>
                                 <td>
                                     <span t-esc="o.total_measurement"/>
@@ -512,9 +512,9 @@
                         <table class="table table-bordered" name="stock_backorder_table" style="table-layout: fixed;border:1px solid black;">
                             <thead>
                                 <tr>
-                                    <th name="th_sb_product"><strong>Product</strong></th>
+                                    <th name="th_sb_product"><strong>PRODUCT</strong></th>
                                     <th/>
-                                    <th name="th_sb_quantity" class="text-center"><strong>Quantity</strong></th>
+                                    <th name="th_sb_quantity" class="text-center"><strong>QUANTITY</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
