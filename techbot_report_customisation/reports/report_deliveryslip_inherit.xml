@@ -35,7 +35,7 @@
                     <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
                     <br></br>
                     <br></br>
-                    <h2 style="text-align: center;color:#1C216A">PACKING LIST</h2>
+                    <h1 style="text-align: center;color:#1C216A"><b>PACKING LIST</b></h1>
                     <br></br>
                     <br></br>        
                     <div class="row">
@@ -104,7 +104,7 @@
                             <span>
                                 <strong t-field="o.name"/>
                             </span>
-                            
+                            <br/>
                             <span style="color:#B69494"><strong style="color:#B69494">CI No.</strong></span>
                             <span t-field="o.ci_no"/><br/>
                             
@@ -162,6 +162,9 @@
                             </t>
                         </div>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
                     <table width="100%">
                         <tr>
                             <td>
@@ -238,7 +241,10 @@
                               
                             </td>
                         </tr>
-                    </table>        
+                    </table>
+                    <br/>
+                    <br/>
+                    <br/>        
         
                     <!-- <div class="row mt32 mb32">
                         <div t-if="o.origin" class="col-auto" name="div_origin">
@@ -283,6 +289,9 @@
                             </tr>
                         </tbody>
                     </table>
+                    <br/>
+                    <br/>
+                    <br/>
                     <table class="table table-bordered mt48" t-if="o.move_line_ids and o.state=='done'" name="stock_move_line_table" style="padding-bottom:0px;border:1px solid black;">
                         <t t-set="has_serial_number" t-value="False"/>
                         <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" groups="stock.group_lot_on_delivery_slip"/>
@@ -458,6 +467,8 @@
                     </table>
                     
                     <br/>
+                    <br/>
+                    <br/>
                     <t t-if="o.vehicle_related">
                         <div class="row">
                             <span style="text-decoration:underline;">
@@ -503,6 +514,9 @@
                             </table>
                         </div>
                     </t>
+                    <br/>
+                    <br/>
+                    <br/>
 
                     <t t-set="backorders" t-value="o.backorder_ids.filtered(lambda x: x.state not in ('done', 'cancel'))"/>
                     <t t-if="o.backorder_ids and backorders">
