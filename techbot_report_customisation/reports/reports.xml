@@ -40,7 +40,7 @@
     </record>
 
     <record id="packing_list_print_custom" model="ir.actions.report">
-        <field name="name">Picking List</field>
+        <field name="name">Packing List</field>
         <field name="model">stock.picking</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">techbot_report_customisation.report_packing_list</field>
