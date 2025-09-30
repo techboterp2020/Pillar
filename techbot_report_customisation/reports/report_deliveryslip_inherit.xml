@@ -102,6 +102,7 @@
                         </div>
                         <div class="col-5">
                             <span>
+                                <span style="color:#B69494"><strong style="color:#B69494">PL No.</strong></span>
                                 <strong t-field="o.name"/>
                             </span>
                             <br/>
