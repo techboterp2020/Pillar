@@ -15,9 +15,9 @@
 <!--                        <div style="height:200px;"/>-->
 <!--                    </t>-->
                     <div style="margin-top:300px;text-align:center;width:100%;">
-                        <h5>
+                        <h1>
                             <span style="font-weight:bold;">PRO-FORMA</span>
-                        </h5>
+                        </h1>
                     </div>
                 <!-- </td>
             </tr>
@@ -39,36 +39,41 @@
                 
                 <br></br>
                 <br></br>
-                <h6 style="text-align: center; font-weight:bold;font-size:30px;margin-top:5%">PROFORMA INVOICE</h6>  
+                <h1 style="text-align: center;color:#1C216A"><b>PROFORMA INVOICE</b></h1>  
                 <br></br>
                 <br></br>
+                <br/>
+                <br/>
+                <br/>
                 <div class="row">
                     <div class="col-8">
                     
-                        <span style="font-weight:bold;">THE BUYER:</span>
+                        <span style="font-weight:bold;color:#B69494">THE BUYER:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
                         <br/>
-                        <span style="font-weight:bold;">ADD:</span>
+                        <span style="font-weight:bold;color:#B69494">ADD:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.street"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.street2"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.city"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
                         <br/>
-                        <span style="font-weight:bold;">MOB:</span>
+                        <span style="font-weight:bold;color:#B69494">MOB:</span>
                         <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
                         <span style="padding-left:5px;" t-esc="o.partner_id.mobile"/>
                     </div>
                     <div class="col-4">
-                        <span style="font-weight:bold;">PI No.</span>
+                        <span style="font-weight:bold;color:#B69494">PI No.</span>
                         <span style="padding-left:5px;">PI/</span><span t-esc="o.name"/>
                         <br/>
-                        <span style="font-weight:bold;">Date:</span>
+                        <span style="font-weight:bold;color:#B69494">DATE:</span>
                         <span style="padding-left:5px;" t-esc="o.date_order.strftime('%d-%m-%Y')"/>
                         <br/>
-                        <span style="font-weight:bold;">Currency:</span>
+                        <span style="font-weight:bold;color:#B69494">CURENCY:</span>
                         <span style="padding-left:5px;" t-esc="o.currency_id.name"/>
                     </div>
                 </div>
+                <br/>
+                <br/>
                 <br/>
 <!--                <div class="row">-->
 <!--                    <p style="font-weight:bold;text-decoration:underline">-->

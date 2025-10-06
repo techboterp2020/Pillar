@@ -34,6 +34,26 @@ class AccountMove(models.Model):
     letter_of_credit = fields.Char(string='Letter of Credit No.')
     temp_ry= fields.Char(string="temp")
 
+    number_to_words = fields.Char(string="Amount in Words (Total) : ",
+                                  compute='_compute_number_to_words',
+                                  help="To showing total amount in words")
+    number_to_words_signed = fields.Char(string="Amount in Words (AED) Signed ",
+                                  compute='_compute_number_to_words_signed',
+                                  help="To showing total amount in words")
+
+    def _compute_number_to_words(self):
+        """Compute the amount to words in Invoice"""
+        for rec in self:
+            rec.number_to_words = rec.currency_id.amount_to_text(
+                rec.amount_total)
+
+    def _compute_number_to_words_signed(self):
+        """Compute the amount to words in Invoice"""
+        for rec in self:
+            rec.number_to_words_signed = rec.company_currency_id.amount_to_text(
+                rec.amount_total_signed)
+
+
 
     
     @api.depends('partner_id')
