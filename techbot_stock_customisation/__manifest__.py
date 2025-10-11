@@ -2,7 +2,7 @@
 {
     'name': 'Stock Customisation',
     'version': '16.0.1.1.0',
-    'category': 'Stock',
+    'category': 'Stocks',
     'summary': """The Vehicle Integration module for Odoo revolutionizes inventory management by seamlessly incorporating essential vehicle details into stock move lines, lots, and serial number models. 
     Now, you can effortlessly track and manage your inventory with the added granularity of vehicle information,
      providing a comprehensive overview of stock movements.""",
