@@ -16,6 +16,25 @@ class StockQuant(models.Model):
     bill_of_lading = fields.Char(string="BOL")
 
     @api.model
+    def create(self, vals):
+        """When a quant is created, copy values from lot (if any)."""
+        quant = super().create(vals)
+        if quant.lot_id:
+            lot = quant.lot_id
+            quant.write({
+                'engine_no': lot.engine_no,
+                'chassis_no': lot.chassis_no,
+                'key_no': lot.key_no,
+                'model_year': lot.model_year,
+                'color_internal': lot.color_internal,
+                'color_external': lot.color_external,
+                'make': lot.make,
+                'bill_of_entry': lot.bill_of_entry,
+                'bill_of_lading': lot.bill_of_lading,
+            })
+        return quant
+
+    @api.model
     def _get_inventory_fields_write(self):
         fields = super(StockQuant, self)._get_inventory_fields_write()
         return fields + ['engine_no', 'chassis_no', 'key_no', 'model_year', 'color_internal', 'color_external', 'make',

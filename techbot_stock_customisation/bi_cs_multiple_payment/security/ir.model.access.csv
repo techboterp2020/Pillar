@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_customer_multi_payments,customer.multi.payments,bi_cs_multiple_payment.model_customer_multi_payments,,1,1,1,1
+access_customer_invoice_lines,customer.invoice.lines,bi_cs_multiple_payment.model_customer_invoice_lines,,1,1,1,1
+access_supplier_invoice_lines,supplier.invoice.lines,bi_cs_multiple_payment.model_supplier_invoice_lines,,1,1,1,1
+access_payment_invoice_lines,payment.invoice.lines,bi_cs_multiple_payment.model_payment_invoice_lines,,1,1,1,1
