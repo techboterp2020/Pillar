@@ -344,7 +344,7 @@
                           <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.street2"/>
                           <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.city"/>
                               <span style="padding-left:5px;" t-esc="o.partner_bank_id.bank_id.country.name"/><br/>
-                          UAE SWIFT CODE :<span t-esc="o.partner_bank_id.swift_code"/><br/>
+                          SWIFT CODE :<span t-esc="o.partner_bank_id.swift_code"/><br/>
                           ACCOUNT NO. (<span t-esc="o.currency_id.name"/>):
                           <span t-esc="o.partner_bank_id.acc_number"/> <br/>
                           IBAN No. (<span t-esc="o.currency_id.name"/>):

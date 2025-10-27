@@ -5,29 +5,63 @@
             <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
                 <div>
                     <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 250px;max-width: 250px;margin-right:30%" alt="Logo"/>
-                        </div>
-                        <div class="col-6 text-end mb4">
-                            <div class="mt0 h4" t-field="company.report_header"/>
-                            <div name="company_address" class="float-end mb4">
-                                <ul class="list-unstyled">
-                                    <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
-                                    <li>
-                                    <span t-esc="company.partner_id.name"/>
-                                    <br/>
-                                    <span t-esc="company.x_studio_arabic_name"/>
-                                    <br/>
-                                    TRN: <span t-esc="company.partner_id.vat"/>
-                                    <br/>
-                                    <span t-esc="company.partner_id.country_id.name"/>
-                                    </li>
-                                    <li>
-                                        
-                                    </li>
-                                </ul>
+                        <t t-if="company.name == 'TRADE CROSS INTERNATIONAL FZCO'">
+                            <div class="row mb8">
+                                <div class="col-4">
+                                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 320px;max-width: 320px;margin-right:30%" alt="Logo"/>
+                                </div>
+                                <div class="col-4" style="text-align:center;color:#6082B6">
+                                  <h3><t t-esc="company.name"/></h3>
+                                </div>
+                                <div class="col-4 text-end mb4">
+                                    <div class="mt0 h4" t-field="company.report_header"/>
+                                    <div name="company_address" class="float-end mb4">
+                                        <ul class="list-unstyled">
+                                            <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
+                                            <li>
+                                            <span t-esc="company.partner_id.name"/>
+                                            <br/>
+                                            <span t-esc="company.x_studio_arabic_name"/>
+                                            <br/>
+                                            TRN: <span t-esc="company.partner_id.vat"/>
+                                            <br/>
+                                            <span t-esc="company.partner_id.country_id.name"/>
+                                            </li>
+                                            <li>
+                                                
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </t>
+                        <t t-else="">
+                            <div class="row mb8">
+                                <div class="col-6">
+                                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 320px;max-width: 320px;margin-right:30%" alt="Logo"/>
+                                </div>
+                                <div class="col-6 text-end mb4">
+                                    <div class="mt0 h4" t-field="company.report_header"/>
+                                    <div name="company_address" class="float-end mb4">
+                                        <ul class="list-unstyled">
+                                            <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
+                                            <li>
+                                            <span t-esc="company.partner_id.name"/>
+                                            <br/>
+                                            <span t-esc="company.x_studio_arabic_name"/>
+                                            <br/>
+                                            TRN: <span t-esc="company.partner_id.vat"/>
+                                            <br/>
+                                            <span t-esc="company.partner_id.country_id.name"/>
+                                            </li>
+                                            <li>
+                                                
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
                     </div>
                 </div>
             </div>
@@ -76,31 +110,63 @@
                 <br></br>
                 <br></br>
                 <div>
-                    <div class="row mb8">
-                        <div class="col-6">
-                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 320px;max-width: 320px;margin-right:30%" alt="Logo"/>
-                        </div>
-                        <div class="col-6 text-end mb4">
-                            <div class="mt0 h4" t-field="company.report_header"/>
-                            <div name="company_address" class="float-end mb4">
-                                <ul class="list-unstyled">
-                                    <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
-                                    <li>
-                                    <span t-esc="company.partner_id.name"/>
-                                    <br/>
-                                    <span t-esc="company.x_studio_arabic_name"/>
-                                    <br/>
-                                    TRN: <span t-esc="company.partner_id.vat"/>
-                                    <br/>
-                                    <span t-esc="company.partner_id.country_id.name"/>
-                                    </li>
-                                    <li>
-                                        
-                                    </li>
-                                </ul>
+                    <t t-if="company.name == 'TRADE CROSS INTERNATIONAL FZCO'">
+                        <div class="row mb8">
+                            <div class="col-4">
+                                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 320px;max-width: 320px;margin-right:30%" alt="Logo"/>
+                            </div>
+                            <div class="col-4" style="text-align:center;color:#6082B6">
+                                  <h3><t t-esc="company.name"/></h3>
+                            </div>
+                            <div class="col-4 text-end mb4">
+                                <div class="mt0 h4" t-field="company.report_header"/>
+                                <div name="company_address" class="float-end mb4">
+                                    <ul class="list-unstyled">
+                                        <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
+                                        <li>
+                                        <span t-esc="company.partner_id.name"/>
+                                        <br/>
+                                        <span t-esc="company.x_studio_arabic_name"/>
+                                        <br/>
+                                        TRN: <span t-esc="company.partner_id.vat"/>
+                                        <br/>
+                                        <span t-esc="company.partner_id.country_id.name"/>
+                                        </li>
+                                        <li>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </t>
+                    <t t-else="">
+                        <div class="row mb8">
+                            <div class="col-6">
+                                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 320px;max-width: 320px;margin-right:30%" alt="Logo"/>
+                            </div>
+                            <div class="col-6 text-end mb4">
+                                <div class="mt0 h4" t-field="company.report_header"/>
+                                <div name="company_address" class="float-end mb4">
+                                    <ul class="list-unstyled">
+                                        <!--<li t-if="company.is_company_details_empty"><t t-esc="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/></li>-->
+                                        <li>
+                                        <span t-esc="company.partner_id.name"/>
+                                        <br/>
+                                        <span t-esc="company.x_studio_arabic_name"/>
+                                        <br/>
+                                        TRN: <span t-esc="company.partner_id.vat"/>
+                                        <br/>
+                                        <span t-esc="company.partner_id.country_id.name"/>
+                                        </li>
+                                        <li>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
                 </div>
             </div>
 
