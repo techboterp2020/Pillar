@@ -74,7 +74,7 @@
                     <br/>
                     <div class="row">
                         <div class="col-7">
-                            <span style="color:#B69494"><strong style="color:#B69494">EXPORTED/SELLER:</strong></span><br/>
+                            <span style="color:#1C216A"><strong style="color:#1C216A">EXPORTED/SELLER:</strong></span><br/>
                             <t t-if="o.company_id.name">
                                 <span t-field="o.company_id.name"/><br/>
                             </t>
@@ -102,24 +102,24 @@
                         </div>
                         <div class="col-5">
                             <span>
-                                <span style="color:#B69494"><strong style="color:#B69494">PL No.</strong></span>
+                                <span style="color:#1C216A"><strong style="color:#1C216A">PL No.</strong></span>
                                 <strong t-field="o.name"/>
                             </span>
                             <br/>
-                            <span style="color:#B69494"><strong style="color:#B69494">CI No.</strong></span>
+                            <span style="color:#1C216A"><strong style="color:#1C216A">CI No.</strong></span>
                             <span t-field="o.ci_no"/><br/>
                             
-                            <span style="color:#B69494"><strong style="color:#B69494">DATE</strong></span>
+                            <span style="color:#1C216A"><strong style="color:#1C216A">DATE</strong></span>
                             <span t-field="o.invoice_date"/><br/>
                             
-                            <span style="color:#B69494"><strong style="color:#B69494">BL/AWB/TWB No.</strong></span>
+                            <span style="color:#1C216A"><strong style="color:#1C216A">BL/AWB/TWB No.</strong></span>
                             <span t-field="o.bl_no"/>
                         </div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-7">
-                            <span style="color:#B69494"><strong style="color:#B69494">CONSIGNEE:</strong></span><br/>
+                            <span style="color:#1C216A"><strong style="color:#1C216A">CONSIGNEE:</strong></span><br/>
                             <span t-field="o.consignee_id.name"/><br/>
                             <t t-if="o.consignee_id.street">
                                 <span t-field="o.consignee_id.street"/><br/>
@@ -141,7 +141,7 @@
                             </t>
                         </div>
                         <div class="col-5">
-                            <span style="color:#B69494"><strong style="color:#B69494">BUYER(if not consignee):</strong></span><br/>
+                            <span style="color:#1C216A"><strong style="color:#1C216A">BUYER(if not consignee):</strong></span><br/>
                             <span t-field="o.partner_id.name"/><br/>
                             <t t-if="o.partner_id.street">
                                 <span t-field="o.partner_id.street"/><br/>
@@ -170,25 +170,25 @@
                         <tr>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">METHOD OF DISPATCH:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">METHOD OF DISPATCH:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.method_of_dispatch"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">DELIVERY TERM:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">DELIVERY TERM:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.delivery_term"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">TYPE OF SHIPMENT:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">TYPE OF SHIPMENT:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.type_of_shipment"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">COUNTRY OF FINAL DESTINATION:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">COUNTRY OF FINAL DESTINATION:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.country_final_destination"/>
                             </td>
@@ -196,25 +196,25 @@
                         <tr>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">VESSEL/AIRCRAFT/TRUCK:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">VESSEL/AIRCRAFT/TRUCK:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.transport_type"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">VOYAGE NO:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">VOYAGE NO:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.voyage_no"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">PACKING INFORMATION:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">PACKING INFORMATION:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.packing_information"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">POST OF LANDING:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">POST OF LANDING:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.port_of_loading"/>
                             </td>
@@ -222,19 +222,19 @@
                         <tr>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">DATE OF DEPARTURE:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">DATE OF DEPARTURE:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.departure_date"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">PORT OF DISCHARGE:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">PORT OF DISCHARGE:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.port_of_discharge"/>
                             </td>
                             <td>
                                 <div>
-                                    <span style="font-weight:bold;padding-left:5px;color:#B69494">FINAL DESTINATION:</span> 
+                                    <span style="font-weight:bold;padding-left:5px;color:#1C216A">FINAL DESTINATION:</span> 
                                 </div>
                                 <span style="padding-left:5px;" t-field="o.final_destination"/>
                             </td>

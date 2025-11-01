@@ -41,7 +41,7 @@
               <br></br>
               <div class="row">
                   <div class="col-8">
-                      <span style="font-weight:bold;color:#B69494">EXPORTER/SELLER:</span><br/>
+                      <span style="font-weight:bold;color:#1C216A">EXPORTER/SELLER:</span><br/>
                       <t t-if="o.company_id.name">
                           <span t-field="o.company_id.name"/><br/>
                       </t>
@@ -83,16 +83,16 @@
                       
                   </div>
                   <div class="col-4">
-                      <span style="font-weight:bold;color:#B69494">CI No.</span>
+                      <span style="font-weight:bold;color:#1C216A">CI No.</span>
                       <span style="padding-left:5px;" t-esc="o.name"/>
                       <br/>
-                      <span style="font-weight:bold;color:#B69494">DATE:</span>
+                      <span style="font-weight:bold;color:#1C216A">DATE:</span>
                       <span style="padding-left:5px;" t-esc="o.invoice_date" t-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;, &quot;widget&quot;: &quot;date&quot;}"/>
                       <br/>
-                      <span style="font-weight:bold;color:#B69494">CURRENCY:</span>
+                      <span style="font-weight:bold;color:#1C216A">CURRENCY:</span>
                       <span style="padding-left:5px;" t-esc="o.currency_id.name"/>
                       <br/>
-                      <span style="font-weight:bold;color:#B69494">BL/AWB/TWB No.</span>
+                      <span style="font-weight:bold;color:#1C216A">BL/AWB/TWB No.</span>
                       <span style="padding-left:5px;" t-esc="o.bl_no"/>
                       
                   </div>
@@ -101,30 +101,30 @@
               <br/>
               <div class="row">
                   <div class="col-8">
-                      <span style="font-weight:bold;color:#B69494">CONSIGNEE:</span>
+                      <span style="font-weight:bold;color:#1C216A">CONSIGNEE:</span>
                       <span style="padding-left:5px;" t-esc="o.consignee_id.name"/>
                       <br/>
-                      <span style="font-weight:bold;color:#B69494">ADD:</span>
+                      <span style="font-weight:bold;color:#1C216A">ADD:</span>
                       <span style="padding-left:5px;" t-esc="o.consignee_id.street"/>
                       <span style="padding-left:5px;" t-esc="o.consignee_id.street2"/>
                       <span style="padding-left:5px;" t-esc="o.consignee_id.city"/>
                       <span style="padding-left:5px;" t-esc="o.consignee_id.country_id.name"/>
                       <br/>
-                      <span style="font-weight:bold;color:#B69494">MOB:</span>
+                      <span style="font-weight:bold;color:#1C216A">MOB:</span>
                       <span style="padding-left:5px;" t-esc="o.consignee_id.phone"/>
                       <span style="padding-left:5px;" t-esc="o.consignee_id.mobile"/>
                   </div>
                   <div class="col-4">
-                      <span style="font-weight:bold;color:#B69494">BUYER(if not consignee):</span>
+                      <span style="font-weight:bold;color:#1C216A">BUYER(if not consignee):</span>
                       <span style="padding-left:5px;" t-esc="o.partner_id.name"/>
                       <br/>
-                      <span style="font-weight:bold;color:#B69494">ADD:</span>
+                      <span style="font-weight:bold;color:#1C216A">ADD:</span>
                       <span style="padding-left:5px;" t-esc="o.partner_id.street"/>
                       <span style="padding-left:5px;" t-esc="o.partner_id.street2"/>
                       <span style="padding-left:5px;" t-esc="o.partner_id.city"/>
                       <span style="padding-left:5px;" t-esc="o.partner_id.country_id.name"/>
                       <br/>
-                      <span style="font-weight:bold;color:#B69494">MOB:</span>
+                      <span style="font-weight:bold;color:#1C216A">MOB:</span>
                       <span style="padding-left:5px;" t-esc="o.partner_id.phone"/>
                       <span style="padding-left:5px;" t-esc="o.partner_id.mobile"/>
                   </div>
@@ -135,26 +135,26 @@
                                
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;color:#B69494">METHOD OF DISPATCH:</span> 
+                              <span style="font-weight:bold;padding-left:5px;color:#1C216A">METHOD OF DISPATCH:</span> 
                           </div>
                            
                           <span style="padding-left:5px;" t-field="o.method_of_dispatch"/>
                       </td>
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;color:#B69494">TYEP OF SHIPMENT:</span>
+                              <span style="font-weight:bold;padding-left:5px;color:#1C216A">TYEP OF SHIPMENT:</span>
                           </div>   
                           <span style="padding-left:5px;" t-field="o.type_of_shipment"/>  
                       </td>
                       <td>
                           <div>
-                           <span style="font-weight:bold;padding-left:5px;color:#B69494">DELIVERY TERM:</span>
+                           <span style="font-weight:bold;padding-left:5px;color:#1C216A">DELIVERY TERM:</span>
                           </div>
                           <span style="padding-left:5px;" t-field="o.delivery_term"/> 
                       </td>
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;color:#B69494">COUNTRY OF FINAL DESTINATION:</span> 
+                              <span style="font-weight:bold;padding-left:5px;color:#1C216A">COUNTRY OF FINAL DESTINATION:</span> 
                           </div>  
                           <span style="padding-left:5px;" t-field="o.country_final_destination"/>  
                       </td>
@@ -162,19 +162,19 @@
                   <tr height="50%">
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#B69494">VESSEL/AIRCRAFT/TRUCK:</span> 
+                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#1C216A">VESSEL/AIRCRAFT/TRUCK:</span> 
                           </div>
                           <span style="padding-left:5px;" t-field="o.transport_type"/>
                       </td>
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#B69494">VOYAGE NO.</span> 
+                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#1C216A">VOYAGE NO.</span> 
                           </div> 
                           <span style="padding-left:5px;" t-field="o.voyage_no"/>   
                       </td>
                       <td rowspan="2" colspan="2">
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#B69494">TERMS/METHOD OD PAYMENT</span>
+                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#1C216A">TERMS/METHOD OD PAYMENT</span>
                           </div> 
                           <span style="padding-left:5px;" t-field="o.terms_method_payment"/>    
                       </td>
@@ -183,13 +183,13 @@
                   <tr height="50%">
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#B69494">PORT OF LOADING</span> 
+                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#1C216A">PORT OF LOADING</span> 
                           </div>
                           <span style="padding-left:5px;" t-field="o.port_of_loading"/>
                       </td>
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#B69494">DATE OF DEPARTURE</span> 
+                              <span style="font-weight:bold;padding-left:5px;padding-bottom:60px;color:#1C216A">DATE OF DEPARTURE</span> 
                           </div>
                           <span style="padding-left:5px;" t-field="o.departure_date"/>
                       </td>
@@ -197,25 +197,25 @@
                   <tr height="50%">
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;color:#B69494">POST OF DISCHARGE</span> 
+                              <span style="font-weight:bold;padding-left:5px;color:#1C216A">POST OF DISCHARGE</span> 
                           </div>
                           <span style="padding-left:5px;" t-field="o.port_of_discharge"/>
                       </td>
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;color:#B69494">FINAL DESTINATION</span> 
+                              <span style="font-weight:bold;padding-left:5px;color:#1C216A">FINAL DESTINATION</span> 
                           </div>
                           <span style="padding-left:5px;" t-field="o.final_destination"/>
                       </td>
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;color:#B69494">MARINE COVER POLICY NO.</span> 
+                              <span style="font-weight:bold;padding-left:5px;color:#1C216A">MARINE COVER POLICY NO.</span> 
                           </div>  
                           <span style="padding-left:5px;" t-field="o.marine_cover"/>  
                       </td>
                       <td>
                           <div>
-                              <span style="font-weight:bold;padding-left:5px;color:#B69494">LETTER OF CREDIT NO.</span> 
+                              <span style="font-weight:bold;padding-left:5px;color:#1C216A">LETTER OF CREDIT NO.</span> 
                           </div>
                           <span style="padding-left:5px;" t-field="o.letter_of_credit"/>
                       </td>
@@ -229,15 +229,15 @@
               <div class="row">
                   <table class="table table-bordered" style="border:1px solid black;">
                       <thead>
-                          <th style="font-size:18px;color:#B69494">S/N</th>
-                          <th style="font-size:18px;color:#B69494">MAKE</th>
-                          <th style="font-size:18px;color:#B69494">ITEM DESCRIPTIONn</th>
-                          <th style="font-size:18px;color:#B69494">HS-CODE</th>
-                          <th style="font-size:18px;color:#B69494">COUNTRY OF ORIGIN</th>
-                          <th style="font-size:18px;color:#B69494">QTY</th>
-                          <th style="font-size:18px;color:#B69494">UNIT</th>
-                          <th style="font-size:18px;color:#B69494">UNIT PRICE</th>
-                          <th style="font-size:18px;color:#B69494">TOTAL PRICE</th>
+                          <th style="font-size:18px;color:#1C216A">S/N</th>
+                          <th style="font-size:18px;color:#1C216A">MAKE</th>
+                          <th style="font-size:18px;color:#1C216A">ITEM DESCRIPTIONn</th>
+                          <th style="font-size:18px;color:#1C216A">HS-CODE</th>
+                          <th style="font-size:18px;color:#1C216A">COUNTRY OF ORIGIN</th>
+                          <th style="font-size:18px;color:#1C216A">QTY</th>
+                          <th style="font-size:18px;color:#1C216A">UNIT</th>
+                          <th style="font-size:18px;color:#1C216A">UNIT PRICE</th>
+                          <th style="font-size:18px;color:#1C216A">TOTAL PRICE</th>
                       </thead>
                       <tbody>
                           <t t-set="counter" t-value="1"/>
